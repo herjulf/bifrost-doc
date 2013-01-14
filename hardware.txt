@@ -1,0 +1,74 @@
+
+                 Bifrost components 2011-03-01
+                 =============================
+
+This represents equipment which have "passed" our tests at some point of time.
+NOTE. This implies no guarantee whatsoever.
+
+
+Mid-Range
+---------
+XEON Quad Core E5620 2.4 GHz 8M L3 Cache QI=5.86GT
+TYAN motherboard S7002
+3 1GB ECC DDR3 1333MHz
+3U Chassies
+
+High-Range
+----------
+Also a similar system as above but based on 
+TYAN's motherboard S7025 
+
+Low-Range and Low Power
+-----------------------
+ATOM based SuperMicro motherboard X7SPA and variants
+Fanless chassies still need some work but there are
+some work in progress.
+
+Network Cards
+-------------
+Intel Network Cards based on:
+Chip 82599 for 10g -- ixgbe driver
+Chip 82575/6 and 82580 (rel. new and under field test) -- igb driver
+
+
+
+
+
+Outdated
+-------- 
+Hi-End and Mid-range 2U/4U Opteron system:
+
+TYAN  2927G2NR-E NVIDA NFP3600          1 *
+2 x 512 MB                              2 *
+Opteron quad-core (Shanghai)   CPU      1 * 
+2U or 4U Chassi                         1 *
+USB memory stick                        1 *
+
+Option: Redundant power supply 
+
+Intel 82575/6 based GIGE based Network cards
+SUN Neptune   10g/1g cards
+Intel 82598   based 10g based Network cards
+
+
+
+Hi-End (more PCI slots) Opteron system:
+
+TYAN Thunder n6550W (S2915-E)           1 *
+256 MB Reg ECC PC3200 (400 MHz)         4 * 
+Opteron quad-core (Shanghai)   CPU      2 *  (Note! 2 CPU populate all PCI slots)
+4U Chassi                               1 *
+USB memory stick                        1 *
+
+Option:
+Redundant power supply
+ EMACS MRG-6500P Redundant PSU 2x500W
+
+
+Note!
+Memory configuration impacts performance in various ways. If possible use at
+least 2 DIMM's per physical CPU to achieve 128 bit transfer mode.
+
+-------------------------------------------------------------------------------
+Example of swedish vendors: Litech - www.litech.se, ECO-FINDER - www.eco-finder.com
+
