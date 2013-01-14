@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>Bifrost Network Project - Distribution</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#005500" VLINK="#550000" ALINK="#005500">
+
+<P ALIGN="center"><A HREF="http://bifrost.slu.se/"><IMG ALIGN="center" VALIGN="middle" BORDER="0" SRC="images/bifrost.gif" ALT="Bifrost Network Project"></A>
+
+<P>
+<TABLE>
+<TR>
+<TD WIDTH="130"><A HREF="index.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/english.gif" ALT="English"></A></TD>
+<TD WIDTH="130"><A HREF="dist.html"><IMG VALIGN="middle" BORDER="1" SRC="images/ladda_ner.gif" ALT="Ladda ner"></A></TD>
+<TD WIDTH="130"><A HREF="documentation.html"><IMG VALIGN="middle" BORDER="0" SRC="images/dokumentation.gif" ALT="Dokumentation"></A></TD>
+<TD WIDTH="130"><A HREF="references.html"><IMG VALIGN="middle" BORDER="0" SRC="images/referenser.gif" ALT="Referenser"></A></TD>
+<TD WIDTH="130"><A HREF="pics.html"><IMG VALIGN="middle" BORDER="0" SRC="images/bilder.gif" ALT="Bilder"></A></TD>
+<TD WIDTH="130"><A HREF="contact.html"><IMG VALIGN="middle" BORDER="0" SRC="images/kontakt.gif" ALT="Kontakt"></A></TD>
+</TR>
+</TABLE>
+
+<P>
+<TABLE>
+<TR>
+<TD WIDTH="50"><A HREF="v1.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v1.gif" ALT="Version 1"></A></TD>
+<TD WIDTH="50"><A HREF="v2.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v2.gif" ALT="Version 2"></A></TD>
+<TD WIDTH="50"><A HREF="v3.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v3.gif" ALT="Version 3"></A></TD>
+<TD WIDTH="50"><A HREF="v4.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v4.gif" ALT="Version 4"></A></TD>
+<TD WIDTH="50"><A HREF="v5.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v5.gif" ALT="Version 5"></A></TD>
+</TR>
+</TABLE>
+
+<H1>Distributioner av Bifrost</H1>
+
+<P>Distributionerna är kompletta disk-bilder av systemet och kan
+packas upp direkt på en flashdisk med ett nyskapat och monterat
+filsystem. För detta behöver man ha tillgång till en Linux-maskin med
+flash-läsare.
+
+<H3>Extra tillägg till Bifrost</H3>
+
+<P>Vissa saker behöver inte finnas med i Bifrost-distributionen, men kan i
+några fall vara trevliga att ha. Vi har därför sammanställt tar-filer med
+sådant som vi vid ett eller annat tillfälle har adderat till Bifrost för att
+lösa någon speciell uppgift.
+
+<UL>
+  <LI><A HREF="fwtk.html">FWTK ftp-gw (en ftp-proxy)</A>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/contrib/">PCMCIA, Kermit, SNMP-verktyg</A>
+</UL>
+
+<H3>Att kopiera över till disk</H3>
+
+<P>Exempel på hur man gör för att från ett Linux-system skapa en bootbar
+flashdisk (distributionen antas ha tagits hem och finns under /usr/src):
+
+<P>OBS! Detta gäller bara fram till och med v5.18. Från och med v5.19
+kör vi med GRUB och proceduren ser därmed något annorlunda
+ut. För att skapa en bootbar USB-sticka med GRUB, kan man använda scriptet
+<A HREF="ftp://robur.slu.se:/pub/Linux/bifrost/contrib/makeusbmem">makeusbmem</A>.
+En enkel guide för hur scriptet används finns i
+<A HREF="ftp://robur.slu.se:/pub/Linux/bifrost/bifrost-install-minihowto.txt">bifrost-install-minihowto.txt</A>.
+
+
+<PRE>
+<TT>
+fdisk /dev/hda                      ;skapa en partition interaktivt
+
+fdisk:
+Ta först bort eventuell FAT16-partition med <B>d</B>.
+Skapa en ny partition (/dev/hda1) med <B>n</B> och
+sätt boot-flaggan med <B>a</B>. Spara och avsluta
+med <B>w</B>.
+
+mke2fs /dev/hda1                    ;skapa filsystem
+mount -t ext2 /dev/hda1 /mnt        ;montera disken
+cd /mnt                             ;gå till monteringspunkten
+tar zxpf /usr/src/bifrost.5.18.tar.gz  ;packa upp distributionen
+chroot /mnt /bin/bash               ;ändra root-miljö
+  cd /                                ;gå till nya root:en
+  ls -alF                             ;kontrollera att det fungerade
+  lilo                                ;kör lilo
+  exit                                ;gå ur den nya root-miljön
+cd /                                ;lämna monteringspunkten
+umount /mnt                         ;avmontera disken
+e2fsck -f /dev/hda1                 ;kontrollera filsystemet
+</TT>
+</PRE>
+
+<P>För att rättigheterna och ägare ska bli korrekta på flashdisken, bör
+man lägga in en filter-användare i /etc/passwd och en filter-grupp i
+/etc/group på den maskin där man skriver ner distributionen på disk.
+Filter-användaren har dock tagits bort från och med Bifrost v4.x.
+
+<PRE>
+<TT>
+/etc/passwd
+filter:*:200:200:Filter User::
+
+/etc/group
+filter::200:
+</TT>
+</PRE>
+
+<A NAME="source">
+<H3>Källkod</H3>
+
+<P>Utvecklingspaket med gcc, en sen version av binutils, och
+libc-5.4.46. Dessutom program för kod-kontroll. I övrigt används
+RedHat 9 som utvecklingsplattform i och med Bifrost v5.6. För
+närvarande används följande:
+
+<PRE>
+gcc 3.2.2
+glibc 2.3.2
+autoconf 2.59
+automake 1.9.3
+</PRE>
+
+<P>Konfigurationsflaggor sätts (när så är möjligt) till:
+
+<PRE>
+CFLAGS="-Os -march=i386"
+./configure --prefix=/usr --build=i386
+
+och några exempel på ibland förekommande flaggor:
+./configure --prefix=/opt/snmp --enable-ipv6 --with-tcp-wrappers --without-xauth --without-x11
+</PRE>
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/bifrost.dev.tools.tar.gz">Bifrost utvecklingspaket (2003-12-09)</A> - 21.8MB
+</UL>
+
+<P>Den äldsta distributionen använder 2.0.35-kärnan (från v1.3b).
+Källkoden och konfigurationen via använder finns här tillgänglig:
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2035.tar.gz">Källkod för Linux kernel 2.0.35</A> - 6.9MB
+</UL>
+
+<P>Distributionen t.o.m. v3.0beta4 använder 2.2.5-kärnan,
+komplett med ATM-kod, nya tulip-drivrutiner och konfigurationen.
+Sedan v3.0beta5 är det 2.2.13 som gäller. Notera att 2.2.13 inte är
+helt frisk och således är nu 2.2.14 eller 2.2.16 bättre alternativ.
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2216.tar.gz">Källkod för Linux kernel 2.2.16 (2000-09-04)</A> - 17.8MB
+</UL>
+
+<P>Kärnor för senare versioner av Bifrost (v4 och v5):
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux249.tar.gz">Källkod för Linux kernel 2.4.9 (2001-10-11)</A> - 27.7MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2417.tar.gz">Källkod för Linux kernel 2.4.17 (2002-03-22)</A> - 29.8MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2419.tar.gz">Källkod för Linux kernel 2.4.19 (2003-04-10)</A> - 32.5MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2566.tar.gz">Källkod för Linux kernel 2.5.66 (2003-10-08)</A> - 39.2MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux260t9.tar.gz">Källkod för Linux kernel 2.6.0-test9 (2003-12-09)</A> - 40.8MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux263.tar.gz">Källkod för Linux kernel 2.6.3 (2004-03-15)</A> - 42.1MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux267.tar.gz">Källkod för Linux kernel 2.6.7 (2004-08-13)</A> - 43.3MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2610.tar.gz">Källkod för Linux kernel 2.6.10 (2005-02-10)</A> - 45.2MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux26145.tar.gz">Källkod för Linux kernel 2.6.14.5 (2006-05-04)</A> - 50.3MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/bifrost-kernel.5.19.02.tar.bz2">Källkod för Linux kernel 2.6.25 (2008-02-29)</A> - 224MB
+</UL>
+
+<P>Patchar som läggs in i kärnan för Bifrost:
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernel-patches/">Patchar för kärnor</A>
+</UL>
+
+<P>Vi har även källkoden till några egna specialhack, samt en del program som
+modifierats eller på annat sätt är kritiska för distributionen. Dessutom går
+det att hitta en del manualsidor till viktiga program, här:
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/bifrost.sources.tar.gz">Diverse källkod (2006-05-04)</A> - 103.9MB
+</UL>
+
+
+<HR>
+<ADDRESS>
+<A HREF="http://irt.slu.se/tomk/">Tom Johans</A> <A HREF="mailto:Tom.Johans@_NO_SPAM_data.slu.se"> &lt;Tom.Johans@_NO_SPAM_data.slu.se&gt;</A>
+</ADDRESS>
+<!-- hhmts start -->
+Last modified: Tue Mar 30 15:20:42 2004
+<!-- hhmts end -->
+</BODY>
+</HTML>

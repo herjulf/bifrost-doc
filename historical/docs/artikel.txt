@@ -1,0 +1,63 @@
+Billig brandvägg med höga prestanda.
+
+Man kan med fri programvara bygga en mycket kraftull brandvägg. Detta har
+testats vid ett gemensamt samarbete mellan SLU och UU.
+
+Varför brandvägg?
+
+Har man inga restriktioner på åtkomst så kan en dator nås från hela
+Internet och med alla protokoll. Ofta finns fel i program och
+operativsystem som gör systemen helt vidöppna för intrång. Med en brandvägg
+man kan begränsa åtkomst med avseende på  protokoll och användare. Denna
+access/säkerhets-policy kan ändras  mycket snabbt om så skulle behövas. 
+Brandväggen hjälper också till med loggning. Detta är mycket viktigt för
+att veta vad som faktiskt händer i ens nät.
+
+Funktioner hos brandväggen:
+
+o Filtrerande IP-router eller Screening
+Protokoll och otillbörlig åtkomst kan kontrolleras. Ingen omskriving av IP-
+adresser. En brandvägg kan sättas "framför" det nät man vill skydda.
+Transparent för användare.
+
+o Adress omskriving eller NAT (Network  Adrdress Translation)
+Protokoll och åtkomst kan styras som ovan men IP-adresserna skrivs om. Man
+kan t ex ha ett stort antal adresser på det interna nätet men bara en
+adress som syns mot Internet.
+
+Hårdvara. Noga utvalda PC-komponeter. Detta är synnerligen viktigt då 
+brandväggens funktion är kritisk för nätets tillgänglighet. Till
+komponeterna  måste det finnas robust och beprövad programvara. Många äro
+kallande få äro utvalda...
+
+Programvara. Anpassat Linux operativsytem till nämnda PC-komponeter.
+
+Installationer vid SLU/UU.
+o Inst f Kemi SLU - 2 installationer filtrering plus adressomskrivning.
+o Studentdatornätet  - Adressomskrivning.
+o BMC
+o Flera på gång.
+
+Kostnad.
+Bestyckad med två 100 Mpbs ethernet kort. Strax under 9.000 kr plus moms.
+
+Referenser.
+http://bifrost.slu.se/
+http://www.xos.nl/linux/ipfwadm
+
+Mera referenser:
+http://www.psychosis.com/linux-router/
+
+Kunskap. Det är viktigt att den som handhar brandväggen har mycket goda
+kunskaper om IP och i synnerhet nätkommunikation såsom protokoll,
+portnummer etc. Dessutom är det viktigt att ha en strategi för vad som ska
+göras. Brandväggen skyddar inte i sig, den är bara hjälpmedlet att
+implementera strategin.
+
+Utveckling pågår på många ställen. Det koncept som används är öppet och
+källkoden fri. Det betyder att det finns många användare och ett stort
+incitament för att det ska finnas en bra fri "produkt".
+
+Prestanda och funktioner är i klass med bästa komersiella produkter.
+
+Robert Olsson/Hans Wassen

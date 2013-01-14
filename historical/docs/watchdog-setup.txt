@@ -1,0 +1,8 @@
+How we normally set the Berkshire watchdog switches:
+
+
+SW1		    SW2			SW3
+1 2 3 4 5 6 7 8	    1 2 3 4 5 6 7 8	1 2 3 4 5 6 7 8
+
+				x	            x
+x x x x x x x x	    x x x x x x   x     x x x x x x   x

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <!-- ======================================================= -->
+  <!-- Created by AbiWord, a free, Open Source wordprocessor.  -->
+  <!-- For more information visit http://www.abisource.com.    -->
+  <!-- ======================================================= -->
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+  <title>bifrost-under-hood-1-FAQ.html</title>
+  <link href="bifrost-under-hood-1-FAQ.html/styles.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <div>
+   <h1 id="AbiTOC0__" style="text-align:center">Bifrost-under-the-hood-part1-FAQ</h1>
+   <p>   </p>
+   <table class="toc" summary="Contents">
+    <tr>
+     <td>
+      <div class="toctitle">
+       <h2>
+Contents       </h2>
+      </div>
+      <p style="text-indent:0in">
+<a href="#AbiTOC0__">[1] Bifrost-under-the-hood-part1-FAQ</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC1__">[1.1] The First boot</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC2__">[1.2] The boot process</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC3__">[1.3] How to toggle write protect of flash media</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC4__">[1.4] Choice of editor</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC5__">[1.5] Configuration files /etc/config.flags /etc/config.data</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC6__">[1.6] How to configure IP4/IP6 addresses etc</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC7__">[1.7] How do I connect to the router?</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC8__">[1.8] How do I access the routing daemons?</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC9__">[1.9] Access filter aka netfilter and stuff</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC10__">[1.10] Loading network drivers that's not found autmaicaly</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC11__">[1.11] Loading device drivers that's not found autmaticaly</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC12__">[1.12] Virtual consoles</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC13__">[1.13] Writing bifrost distro with dd or cp?</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC14__">[1.14] Multiqueue capable cards/drivers</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC15__">[1.15] eth-affinity</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC16__">[1.16] Driver link flowcontrol</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC17__">[1.17] Profiling of system and kernel</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC18__">[1.18] Idea and anatomy of a bifrost package</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC19__">[1.19] Building apps for bifrost</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC20__">[1.20] Bifrost kernel configuration</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC21__">[1.21] Rebuild a bifrost kernel</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC22__">[1.22] Network monitoring</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC23__">[1.23] 32 vs 64 bits</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC24__">[1.24] ipv6 enabling</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC25__">[1.25] Optical monitoring﻿</a>      </p>
+      <p style="text-indent:0.5in">
+<a href="#AbiTOC26__">[1.26] TCAM filters etc for SUN Neptune card/driver</a>      </p>
+     </td>
+    </tr>
+   </table>
+   <p></p>
+   <p></p>
+   <h2 id="AbiTOC1__">The First boot</h2>
+   <p>The first boot triggers the configure script to run. The major purpose of this is to get some initial configuration. &nbsp;IP address, and sshd &nbsp;running. &nbsp;So you can reach the system to configure the desired functionality.The configuration process creates &nbsp;/etc/.configured file &nbsp;when configured.</p>
+   <p></p>
+   <h2 id="AbiTOC2__">The boot process</h2>
+   <p dir="ltr" style="text-align:left">Bifrost/Linux uses grub in most cases. grub &nbsp;controls via /boot/grub/menu.lst which kernel to use and also different options. Please refer to grub info for further info. &nbsp;After kernel boot </p>
+   <p dir="ltr" style="text-align:left">/bin/init &nbsp;is run which uses /etc/inittab like most unix systems. The rc.* files are kept at minimum and &nbsp;has a very simple and straightforward &nbsp;design. Major files are rc.S, rc.M and rc.inet. User should avoid making changes in rc.* files.</p>
+   <p dir="ltr" style="text-align:left"></p>
+   <h2 id="AbiTOC3__">How to toggle write protect of flash media</h2>
+   <p>Bifrost uses remount r/w to avoid unintended writing flash media. Flash media limited lifetime for writing. remount w makes it writeable. To store configuration changes etc. &nbsp;It's good idea to do remount r when configuration is done. Note! Ramdisk is always writable for scp etc.</p>
+   <p></p>
+   <h2 id="AbiTOC4__">Choice of editor</h2>
+   <p>The editor is your tool for doing configuration and other work. Bifrost 6.0 &nbsp;and later includes vi, zile (a small powerful emacs clone) and nano.</p>
+   <p></p>
+   <h2 id="AbiTOC5__">Configuration files /etc/config.flags /etc/config.data</h2>
+   <p>This two directories are controlling some of the major functions your in bifrost system. Many of the files in /etc/config.flags just controls if an option is enabled or not. &nbsp;Check out these two directories. </p>
+   <p></p>
+   <h2 id="AbiTOC6__">How to configure IP4/IP6 addresses etc</h2>
+   <p dir="ltr" style="text-align:left">It's recommended that you keep your IP-addresses in /etc/config.data/ &nbsp;For eth0 &nbsp;the config will be eth0.nic and so on. </p>
+   <p dir="ltr" style="text-align:left"></p>
+   <h2 id="AbiTOC7__">How do I connect to the router?</h2>
+   <p>ssh in most cases. </p>
+   <p></p>
+   <h2 id="AbiTOC8__">How do I access the routing daemons?</h2>
+   <p>When using quagga. ssh into the Bifrost box. <span lang="en-US">telnet localhost 2601 to get you into quagga daemon, Port number for ospfd is 2604, &nbsp;bgpd 2606 and ospf6d 2606. As you know quagga has Cisco-like API. Of course make the flash diskwritable so you can store the config.</span></p>
+   <p></p>
+   <h2 id="AbiTOC9__">Access filter aka netfilter and stuff</h2>
+   <p dir="ltr" style="text-align:left">In Bifrost/Linux files are kept under /filter look for &nbsp;fwrules and &nbsp;fw6rules which are run &nbsp;at boot from rc.inet.</p>
+   <p></p>
+   <p></p>
+   <h2 id="AbiTOC10__">Loading network drivers that's not found autmaicaly</h2>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">eth-detect should load proper network device drivers in most cases. Supporting files is located in &nbsp;/etc/eth-detect.d/ and here the user should add own files if needed. </span></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"></p>
+   <h2 id="AbiTOC11__" dir="ltr">Loading device drivers that's not found autmaticaly</h2>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">In most cases the system should load proper device drivers. &nbsp;Supporting files is located in &nbsp;/etc/device-detect.d/ and here user should add own files if needed. &nbsp;For example modules for an own hard disk can be loaded here.</span></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"></p>
+   <h2 id="AbiTOC12__">Virtual consoles</h2>
+   <p>This Linux feature can be handy if you're configuring your system from the console.</p>
+   <p dir="ltr" style="text-align:left"><a href="http://lowfatlinux.com/linux-virtual-console.html">http://lowfatlinux.com/linux-virtual-console.html</a></p>
+   <p></p>
+   <h2 id="AbiTOC13__">Writing bifrost distro with dd or cp?</h2>
+   <p> Yes we try to support this now. Check out the download area for images.</p>
+   <p></p>
+   <h2 id="AbiTOC14__">Multiqueue capable cards/drivers</h2>
+   <p>Bifrost is probably the first Linux distribution to support multi-queue and multi-core functionality in the Linux kernel. The idea is to use the virtualization support to boost the network and forwarding performance. The drivers ixgbe (Intel 10g card) and niu (SUN Neptune &nbsp;board 10g and GIGE ) &nbsp;and igb &nbsp;supports this.</p>
+   <p></p>
+   <h2 id="AbiTOC15__">eth-affinity</h2>
+   <p>This is new utility to setup interrupt vectors etc. This is to support multi-queue cards. This is done automatic at boot when interfaces are brought up.</p>
+   <p></p>
+   <h2 id="AbiTOC16__" dir="ltr">Driver link flowcontrol</h2>
+   <p dir="ltr">For major drivers we turn this off by default. </p>
+   <p dir="ltr"></p>
+   <h2 id="AbiTOC17__" dir="ltr">Profiling of system and kernel</h2>
+   <p dir="ltr" style="text-align:left">For research and very advanced users it should be possible to oprofile a running installation at very low cost. You need an optional package for this. &nbsp;<a href="ftp://robur.slu.se/pub/Linux/bifrost/opt-x86_64/oprofile-090115-x86_64.tar.gz">ftp://robur.slu.se/pub/Linux/bifrost/opt-x86_64/oprofile-090115-x86_64.tar.gz</a>&nbsp;The major script is /opt/oprofile/bin/OP. Hint. If profiling &nbsp;is not planned the /boot/vmlinux can be removed to save space. </p>
+   <p dir="ltr"></p>
+   <p dir="ltr"></p>
+   <h2 id="AbiTOC18__" dir="ltr">Idea and anatomy of a bifrost package</h2>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">A compressed tar archive that lives under /opt with pre and post-installation scripts (bash) . </span></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">/opt/pkg-name/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main directory</span></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">/opt/pkg-name/etc/config.flags/pkg-name &nbsp;&nbsp;&nbsp;Should contain "yes" to enable.</span></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">/opt/pkg-name/rc.d/rc.pkg-name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start script for package (called w. start argument)</span></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">Ideally the binaries are linked statically or with ulibc or diet-libc. </span></p>
+   <h2 id="AbiTOC19__" dir="ltr" style="text-align:left;margin-bottom:0.0417in;margin-top:0.3056in;margin-right:0.0000in"><span lang="en-US">Building apps for bifrost</span></h2>
+   <h2 id="AbiTOC20__" dir="ltr" style="text-align:left;margin-bottom:0.0417in;margin-top:0.3056in;margin-right:0.0000in"><span lang="en-US">Bifrost kernel configuration</span></h2>
+   <p dir="ltr" style="text-align:left">On a running system it can be captures &nbsp;/proc/config.gz &nbsp;otherwise look in /Documentation directory.</p>
+   <h2 id="AbiTOC21__" dir="ltr" style="text-align:left;margin-bottom:0.0417in;margin-top:0.3056in;margin-right:0.0000in"><span lang="en-US">Rebuild a bifrost kernel</span></h2>
+   <h2 id="AbiTOC22__" dir="ltr" style="text-align:left;margin-bottom:0.0417in;margin-top:0.3056in;margin-right:0.0000in"><span lang="en-US">Network monitoring</span></h2>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">Useful utilities &nbsp;are rtstat, ifstat2 </span></p>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"></p>
+   <h2 id="AbiTOC23__" dir="ltr">32 vs 64 bits</h2>
+   <p dir="ltr">The current Bifrost 6.0 kernel is compiled for 64 bits but does include the option to run 32 binary programs. This works well for most programs with a few exceptions like &nbsp;ethtool, tcpdump and strace. &nbsp;These binaries are kept in /usr/bin64. The PATH should be automatically set correctly at boot.</p>
+   <p dir="ltr"></p>
+   <h2 id="AbiTOC24__" dir="ltr">ipv6 enabling</h2>
+   <p dir="ltr" style="text-align:left">When enabling remember to change default policy in &nbsp;/filter/fw6rules. Default is DROP.</p>
+   <p dir="ltr" style="text-align:left"></p>
+   <h2 id="AbiTOC25__" dir="ltr">Optical monitoring﻿</h2>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">Not currently. &nbsp;DOM and XFP can support this via the i2C bus on the tranceiver. But it seems that the I2C bus is not currently connected to the interface boards, this goes for the boards we've seen so far.</span></p>
+   <h2 id="AbiTOC26__" dir="ltr" style="text-align:left;margin-bottom:0.0417in;margin-top:0.3056in;margin-right:0.0000in"><span lang="en-US">TCAM filters etc for SUN Neptune card/driver</span></h2>
+   <p dir="ltr" style="text-align:left;margin-bottom:0.0000in;margin-top:0.0000in;margin-right:0.0000in"><span lang="en-US">The SUN Netpune board has HW classification support via programable TCAM. Drop filters data and control plane separation and new features should be possible. Programming is done via ethtool. This is in a very early stage and should be considered very experimental. Also there is byte-order bug when writing IP-address and port numbers.</span></p>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,176 @@
+                  Bifrost-under-the-hood-part1-FAQ
+
+
+The First boot
+
+The first boot triggers the configure script to run. The major purpose of this 
+is to get some initial configuration.  IP address, and sshd  running.  So you 
+can reach the system to configure the desired functionality.The configuration 
+process creates  /etc/.configured file  when configured.
+
+
+The boot process
+
+Bifrost/Linux uses grub in most cases. grub  controls via /boot/grub/menu.lst 
+which kernel to use and also different options. Please refer to grub info for 
+further info.  After kernel boot /bin/init  is run which uses /etc/inittab 
+like most unix systems. The rc.* files are kept at minimum and  has a very 
+simple and straightforward  design. Major files are rc.S, rc.M and rc.inet. 
+User should avoid making changes in rc.* files.
+
+
+How to toggle write protect of flash media
+
+Bifrost uses remount r/w to avoid unintended writing flash media. Flash media 
+limited lifetime for writing. remount w makes it writeable. To store configu-
+ration changes etc.  It's good idea to do remount r when configuration is done.
+Note! Ramdisk is always writable for scp etc.
+
+
+Choice of editor
+
+The editor is your tool for doing configuration and other work. Bifrost 6.0  
+and later includes vi, zile (a small powerful emacs clone) and nano.
+
+
+Configuration files /etc/config.flags /etc/config.data
+
+This two directories are controlling some of the major functions your in bifrost system. Many of the files in /etc/config.flags just controls if an option is enabled or not.  Check out these two directories. 
+
+
+How to configure IP4/IP6 addresses etc
+
+It's recommended that you keep your IP-addresses in /etc/config.data/  For 
+eth0  the config will be eth0.nic and so on. 
+
+
+How do I connect to the router?
+ssh in most cases. 
+
+
+How do I access the routing daemons?
+
+When using quagga. ssh into the Bifrost box. telnet localhost 2601 to get you 
+into quagga daemon, Port number for ospfd is 2604,  bgpd 2606 and ospf6d 2606. 
+As you know quagga has Cisco-like API. Of course make the flash diskwritable 
+so you can store the config.
+
+
+Access filter aka netfilter and stuff
+
+In Bifrost/Linux files are kept under /filter look for fwrules and fw6rules 
+which are run  at boot from rc.inet.
+
+
+
+Loading network drivers that's not found autmaicaly
+
+eth-detect should load proper network device drivers in most cases. Supporting
+files is located in  /etc/eth-detect.d/ and here the user should add own files 
+if needed. 
+
+
+
+Loading device drivers that's not found autmaticaly
+
+In most cases the system should load proper device drivers.  Supporting files 
+is located in  /etc/device-detect.d/ and here user should add own files if 
+needed.  For example modules for an own hard disk can be loaded here.
+
+
+Virtual consoles
+
+This Linux feature can be handy if you're configuring your system from the 
+console. http://lowfatlinux.com/linux-virtual-console.html
+
+
+Writing bifrost distro with dd or cp?
+
+Yes we try to support this now. Check out the download area for images.
+
+
+Multiqueue capable cards/drivers
+
+Bifrost is probably the first Linux distribution to support multi-queue and 
+multi-core functionality in the Linux kernel. The idea is to use the virt-
+ualization support to boost the network and forwarding performance. The drivers
+ixgbe (Intel 10g card) and niu (SUN Neptune board 10g and GIGE ) and igb 
+supports this.
+
+
+eth-affinity
+
+This is new utility to setup interrupt vectors etc. This is to support multi-
+queue cards. This is done automatic at boot when interfaces are brought up.
+
+
+Driver link flowcontrol
+
+For major drivers we turn this off by default. 
+
+
+Profiling of system and kernel
+
+For research and very advanced users it should be possible to oprofile a 
+running installation at very low cost. You need an optional package for this.
+ftp://robur.slu.se/pub/Linux/bifrost/opt-x86_64/oprofile-090115-x86_64.tar.gz 
+The major script is /opt/oprofile/bin/OP. Hint. If profiling  is not planned 
+the /boot/vmlinux can be removed to save space. 
+
+
+Idea and anatomy of a bifrost package
+
+A compressed tar archive that lives under /opt with pre and post-installation 
+scripts (bash) . 
+
+/opt/pkg-name/                           Main directory
+/opt/pkg-name/etc/config.flags/pkg-name Should contain "yes" to enable.
+/opt/pkg-name/rc.d/rc.pkg-name          Start script for package 
+
+
+Ideally the binaries are linked statically or with ulibc or diet-libc. 
+
+
+Building apps for bifrost
+
+
+Bifrost kernel configuration
+
+On a running system it can be captures /proc/config.gz otherwise look in 
+/Documentation directory.
+
+Rebuild a bifrost kernel
+
+
+Network monitoring
+
+Useful utilities  are rtstat, ifstat2 
+
+
+32 vs 64 bits
+
+The current Bifrost 6.0 kernel is compiled for 64 bits but does include the 
+option to run 32 binary programs. This works well for most programs with a 
+few exceptions like  ethtool, tcpdump and strace.  These binaries are kept 
+in /usr/bin64. The PATH should be automatically set correctly at boot.
+
+
+ipv6 enabling
+
+When enabling remember to change default policy in  /filter/fw6rules. Default 
+is DROP.
+
+
+Optical monitoring
+
+Not currently.  DOM and XFP can support this via the i2C bus on the tranceiver.
+But it seems that the I2C bus is not currently connected to the interface 
+boards, this goes for the boards we've seen so far.
+
+TCAM filters etc for SUN Neptune card/driver
+
+The SUN Netpune board has HW classification support via programable TCAM. Drop 
+filters data and control plane separation and new features should be possible. 
+Programming is done via ethtool. This is in a very early stage and should be 
+considered very experimental. Also there is byte-order bug when writing IP-
+address and port numbers.

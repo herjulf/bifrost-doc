@@ -1,0 +1,190 @@
+<HTML>
+<HEAD>
+<TITLE>Bifrost Network Project - Distribution</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#005500" VLINK="#550000" ALINK="#005500">
+
+<P ALIGN="center"><A HREF="http://bifrost.slu.se/index.en.html"><IMG ALIGN="center" VALIGN="middle" BORDER="0" SRC="images/bifrost.gif" ALT="Bifrost Network Project"></A>
+
+<P>
+<TABLE>
+<TR>
+<TD WIDTH="130"><A HREF="index.html"><IMG VALIGN="middle" BORDER="0" SRC="images/svenska.gif" ALT="Svenska"></A></TD>
+<TD WIDTH="130"><A HREF="dist.en.html"><IMG VALIGN="middle" BORDER="1" SRC="images/download.gif" ALT="Ladda ner"></A></TD>
+<TD WIDTH="130"><A HREF="documentation.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/documentation.gif" ALT="Documentation"></A></TD>
+<TD WIDTH="130"><A HREF="references.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/references.gif" ALT="References"></A></TD>
+<TD WIDTH="130"><A HREF="pics.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/pictures.gif" ALT="Pictures"></A></TD>
+<TD WIDTH="130"><A HREF="contact.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/contact.gif" ALT="Contact"></A></TD>
+</TR>
+</TABLE>
+
+<P>
+<TABLE>
+<TR>
+<TD WIDTH="50"><A HREF="v1.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v1.gif" ALT="Version 1"></A></TD>
+<TD WIDTH="50"><A HREF="v2.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v2.gif" ALT="Version 2"></A></TD>
+<TD WIDTH="50"><A HREF="v3.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v3.gif" ALT="Version 3"></A></TD>
+<TD WIDTH="50"><A HREF="v4.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v4.gif" ALT="Version 4"></A></TD>
+<TD WIDTH="50"><A HREF="v5.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/v5.gif" ALT="Version 5"></A></TD>
+</TR>
+</TABLE>
+
+<H1>Bifrost Distributions</H1>
+
+<P>The distributions are complete disk images of the system and
+can be unpacked directly on a flash disk with a fresh file system.
+To be able to mount the flash disk and create new file systems,
+one must have access to another Linux based PC with a flash disk
+reader.
+
+<H3>Extra accessories for Bifrost</H3>
+
+<P>Some things are not generally needed in the Bifrost distribution, but
+can in a few cases turn out to be useful. We have therefor compiled tar
+files with stuff that we at one time or the other have added to Bifrost
+to solve a particular task.
+
+<UL>
+  <LI><A HREF="fwtk.en.html">FWTK ftp-gw (an ftp-proxy)</A>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/contrib/">PCMCIA, Kermit, SNMP-tools</A>
+</UL>
+
+<H3>Copying Images</H3>
+
+<P>An example of how to create a working Linux system (having downloaded
+the image file to /usr/src on our local support machine):
+
+<P>Note! The following apply only to versions up to v5.18. As of v5.19
+and later, we use GRUB as a boot loader and the procedures have
+changed a bit. To create a bootable USB memory stick using GRUB, you may use the
+<A HREF="ftp://robur.slu.se:/pub/Linux/bifrost/contrib/makeusbmem">makeusbmem</A>
+script. A simple guide on how to use the script is in
+<A HREF="ftp://robur.slu.se:/pub/Linux/bifrost/bifrost-install-minihowto.txt">bifrost-install-minihowto.txt</A>.
+
+
+<PRE>
+<TT>
+fdisk /dev/hda                      ;create a partition interactively
+
+fdisk:
+Remove a possible FAT16 partition using <B>d</B>.
+Create a new partition (/dev/hda1) with <B>n</B> and
+set the boot flag with <B>a</B>. Save and exit
+with <B>w</B>.
+
+mke2fs /dev/hda1                    ;create file system
+mount -t ext2 /dev/hda1 /mnt        ;mount the disk
+cd /mnt                             ;change directory to /mnt
+tar zxpf /usr/src/bifrost.5.18.tar.gz  ;unpack the distribution
+chroot /mnt /bin/bash               ;change root environment
+  cd /                                ;cd to new root
+  ls -alF                             ;check that it works
+  lilo                                ;run lilo
+  exit                                ;exit the environment
+cd /                                ;leave the mount point
+umount /mnt                         ;unmount the disk
+e2fsck -f /dev/hda1                 ;check the file system
+</TT>
+</PRE>
+
+<P>To be able to get the proper user and group id when writing the
+image file to disk, you may have to create a user and a group called
+filter on your machine from which you write the flashdisks.
+However, the filter user has been removed from Bifrost v4.x.
+
+<PRE>
+<TT>
+/etc/passwd
+filter:*:200:200:Filter User::
+
+/etc/group
+filter::200:
+</TT>
+</PRE>
+
+<A NAME="source">
+<H3>Source Code</H3>
+
+<P>Development package with gcc, a late version of binutils and
+libc-5.4.46. Included is also code checking utilities. As a
+development platform we are using RedHat 9, as of Bifrost
+v5.6. Currently we are using:
+
+<PRE>
+gcc 3.2.2
+glibc 2.3.2
+autoconf 2.59
+automake 1.9.3
+</PRE>
+
+<P>Configuration flags are set to (when possible):
+
+<PRE>
+CFLAGS="-Os -march=i386"
+./configure --prefix=/usr --build=i386
+
+and a few examples of common extra flags
+./configure --prefix=/opt/snmp --enable-ipv6 --with-tcp-wrappers --without-xauth --without-x11
+</PRE>
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/bifrost.dev.tools.tar.gz">Bifrost development package (2003-12-09)</A> - 21.8MB
+</UL>
+
+<P>For the oldest distribution, we are using the 2.0.35 version of the
+Linux kernel (as from v1.3b). The source tree with the configuration
+we are using is available here:
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2035.tar.gz">Linux Kernel 2.0.35 Source Tree</A> - 6.9MB
+</UL>
+
+<P>The distribution uptil v3.0beta4 uses the 2.2.5 kernel, complete
+with ATM-code, new tulip-drivers and configuration. Since v3.0beta5 we're using
+the 2.2.13 kernel. Note that 2.2.13 is not so healthy when it comes to the
+network code and it will probably be much better with 2.2.14 or 2.2.16.
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2216.tar.gz">Linux kernel 2.2.16 Source Tree (2000-09-04)</A> - 17.8MB
+</UL>
+
+<P>Kernels for more recent versions of Bifrost (v4 and v5):
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux249.tar.gz">Linux kernel 2.4.9 Source Tree (2001-10-11)</A> - 27.7MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2417.tar.gz">Linux kernel 2.4.17 Source Tree (2002-03-22)</A> - 29.8MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2419.tar.gz">Linux kernel 2.4.19 Source Tree (2003-04-10)</A> - 32.5MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2566.tar.gz">Linux kernel 2.5.66 Source Tree (2003-10-08)</A> - 39.2MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux260t9.tar.gz">Linux kernel 2.6.0-test9 Source Tree (2003-12-09)</A> - 40.8MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux263.tar.gz">Linux kernel 2.6.3 Source Tree (2004-03-15)</A> - 42.1MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux267.tar.gz">Linux kernel 2.6.7 Source Tree (2004-08-13)</A> - 43.3MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux2610.tar.gz">Linux kernel 2.6.10 Source Tree (2005-02-10)</A> - 45.2MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/linux26145.tar.gz">Linux kernel 2.6.14.5 Source Tree (2006-05-04)</A> - 50.3MB
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernels/bifrost-kernel.5.19.02.tar.bz2">Linux kernel 2.6.25 Source Tree (2008-02-29)</A> - 224MB
+</UL>
+
+<P>Patches that are added to the Bifrost kernel:
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/kernel-patches/">Kernel Patches</A>
+</UL>
+
+<P>We also have the source code for our own special hacks, as well as a few
+modified programs or software that is somehow critical for the distribution.
+Furthermore, one can also find a few manual pages for important programs
+here:
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/source/bifrost.sources.tar.gz">Miscellaneous Source Code (2006-05-04)</A> - 103.9MB
+</UL>
+
+<HR>
+<ADDRESS>
+<A HREF="http://irt.slu.se/tomk/">Tom Johans</A> <A HREF="mailto:Tom.Johans@_NO_SPAM_data.slu.se"> &lt;Tom.Johans@_NO_SPAM_data.slu.se&gt;</A>
+</ADDRESS>
+<!-- hhmts start -->
+Last modified: Tue Mar 30 15:20:26 2004
+<!-- hhmts end -->
+</BODY>
+</HTML>

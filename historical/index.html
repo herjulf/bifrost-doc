@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Bifrost Network Project</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#005500" VLINK="#550000" ALINK="#005500">
+
+<P ALIGN="center"><A HREF="http://bifrost.slu.se/"><IMG ALIGN="center" VALIGN="middle" BORDER="0" SRC="images/bifrost.gif" ALT="Bifrost Network Project"></A>
+
+<P>
+<TABLE>
+<TR>
+<TD WIDTH="130"><A HREF="index.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/english.gif" ALT="English"></A></TD>
+<TD WIDTH="130"><A HREF="dist.html"><IMG VALIGN="middle" BORDER="0" SRC="images/ladda_ner.gif" ALT="Ladda ner"></A></TD>
+<TD WIDTH="130"><A HREF="documentation.html"><IMG VALIGN="middle" BORDER="0" SRC="images/dokumentation.gif" ALT="Dokumentation"></A></TD>
+<TD WIDTH="130"><A HREF="references.html"><IMG VALIGN="middle" BORDER="0" SRC="images/referenser.gif" ALT="Referenser"></A></TD>
+<TD WIDTH="130"><A HREF="pics.html"><IMG VALIGN="middle" BORDER="0" SRC="images/bilder.gif" ALT="Bilder"></A></TD>
+<TD WIDTH="130"><A HREF="contact.html"><IMG VALIGN="middle" BORDER="0" SRC="images/kontakt.gif" ALT="Kontakt"></A></TD>
+</TR>
+</TABLE>
+
+<P><IMG BORDER="0" SRC="pics/bifrost-small.gif" ALT="Logo"></P>
+
+<P>Namnet Bifrost är hämtat från den fornnordiska mytologin, där
+Bifrost är den bro som byggdes mellan Midgård och Asgård och som av
+människorna kallas för Regnbågen. Den är så stark att den inte
+förstörs förrän vid Ragnarök - världens undergång. Den vaktas av
+Heimdall och den röda färg som man ser i den, är en flammande eld som
+hindrar bergsjättarna från att ta sig upp till Asgård.  </P>
+
+<P><H2>Beskrivning</H2></P>
+
+<P>Projektets mål är att utröna driftsäkerhet, nätprestanda,
+filterfunktioner, administration, datasäkerhet, skalbarhet och
+utvecklingsbarhet hos en Linux-baserad router/brandvägg. Hårdvaran är
+i grunden en standard-PC med två (eller flera) Ethernetkort
+(framförallt med Intels Tulip chip eller e1000 Gigabit-kort) och en
+flashdisk på minst 45 MB (en modern större flashdisk är dock att
+föredra). Operativsystemet är en modifierad, minimal och optimerad
+Linux-distribution, med kärnan konfigurerad för brandväggsfunktioner
+och routing. Filtret som kontrollerar brandväggens säkerhetspolicy är
+en del av kärnan och kan konfigureras via med <B>iptables</B>.</P>
+
+<P>Senare distributioner har börjat användas som rena
+Internet-routrar, bestyckade med 1GB minne eller mer.</P>
+
+<P><H2>Resultat</H2></P>
+
+<P>Den första Bifrost-brandväggen installerades hos institutionen för
+kemi (SLU) 1997, men fler installationer har senare gjorts inom SLU,
+UU och en del andra ställen runt om i landet (KTH, KI och andra) -
+mestadels universitet. Under senare tid har distributionen hittat
+användare även utomlands.
+
+<P>Bifrost har åtminstone två användningsområden. Den kan fungera som
+en edge-router och/eller som en brandvägg. Senare versioner fungerar
+även bra som core-routrar med full Internet-routing. Det finns idag
+fullt <STRONG>färdiga</STRONG> och <STRONG>körklara</STRONG> <A
+HREF="dist.html">distributioner</A> av Bifrost baserat på
+2.6-kärnan. Systemet har visat sig vara mycket stabilt och
+funktionsdugligt. En viktig del av hemligheten bakom stabiliteten
+ligger förstås i att välja rätt <A HREF="ftp://robur.slu.se/pub/Linux/bifrost/hardware.txt">hårdvara</A>.</P>
+
+<P><H2>Utveckling och pågående försök</H2></P>
+
+<P>Som en del av Bifrost har vi något som vi kallar för
+<B>Bifrost Nomad</B>. Det är verktyg för nätinloggning med autenticering och
+händelsestyrd routing eller filterhantering. Till detta använder vi
+bl.a. Apache+OpenSSL och IP-login.
+
+<P>Andra projekt knoppas av och vi använder bl.a. Bifrost som
+termineringsburk för WLAN (Vagabond), VPN, RADIUS-server, webb och
+avlyssningssystem.
+
+<P>Arbete sker på 2.6-kärna och förbättringar av e1000-drivern liksom
+10Gb-kort. IPv6-stöd är förstås inkluderat. Från och med Bifrost v5.19
+använder vi en patchad 2.6.24-kärnan.
+
+<P>Tester av HiPac pågår och det ser mycket lovande ut för enklare
+former av filtrering, med mycket goda prestanda jämfört med Netfilter.
+
+<HR>
+<ADDRESS>
+<A HREF="http://irt.slu.se/tomk/">Tom Johans</A> <A HREF="mailto:Tom.Johans@_NO_SPAM_data.slu.se"> &lt;Tom.Johans@_NO_SPAM_data.slu.se&gt;</A>
+</ADDRESS>
+<!-- hhmts start -->
+Last modified: Fri Jan 25 14:20:46 2008
+<!-- hhmts end -->
+</BODY>
+</HTML>

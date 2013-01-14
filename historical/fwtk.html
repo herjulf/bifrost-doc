@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<TITLE>Bifrost Network Project - FWTK</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#005500" VLINK="#550000" ALINK="#005500">
+
+<P ALIGN="center"><A HREF="http://bifrost.slu.se/"><IMG ALIGN="center" VALIGN="middle" BORDER="0" SRC="images/bifrost.gif" ALT="Bifrost Network Project"></A>
+
+<P>
+<TABLE>
+<TR>
+<TD WIDTH="130"><A HREF="index.en.html"><IMG VALIGN="middle" BORDER="0" SRC="images/english.gif" ALT="English"></A></TD>
+<TD WIDTH="130"><A HREF="dist.html"><IMG VALIGN="middle" BORDER="0" SRC="images/ladda_ner.gif" ALT="Ladda ner"></A></TD>
+<TD WIDTH="130"><A HREF="documentation.html"><IMG VALIGN="middle" BORDER="1" SRC="images/dokumentation.gif" ALT="Dokumentation"></A></TD>
+<TD WIDTH="130"><A HREF="references.html"><IMG VALIGN="middle" BORDER="0" SRC="images/referenser.gif" ALT="Referenser"></A></TD>
+<TD WIDTH="130"><A HREF="pics.html"><IMG VALIGN="middle" BORDER="0" SRC="images/bilder.gif" ALT="Bilder"></A></TD>
+<TD WIDTH="130"><A HREF="contact.html"><IMG VALIGN="middle" BORDER="0" SRC="images/kontakt.gif" ALT="Kontakt"></A></TD>
+</TR>
+</TABLE>
+
+<H1>FWTK ftp-gw</H1>
+
+<P>Ftp tillhör de protokoll som är omöjliga att filtrera på ett bra sätt.
+Passiv ftp är det enda alternativet för utgående trafik, men normal ftp
+för inkommande (beroende på protkoll-konstruktionen och vilka portar som
+används). Problem uppstår då man behöver koppla sig mot ftp-servrar som
+inte stöder passiv ftp, har klienter som inte stöder passiv ftp och om
+man ska köra ftp mellan två nät som har filtrering av ftp och bara släpper
+ut passiv ftp och släpper in normal ftp.
+
+<P>Den enda vettiga lösningen är att köra med en proxy för just ftp och
+fortsätta filtrera på övriga protokoll. Ftp spärras av inifrån och ut och
+tillåts bara gå till Bifrost-burken, som sedan m.h.a. proxyn skickar paketen
+vidare. Inkommande ftp trafik mot egna ftp-servers kan man fortsätta att
+ha öppet för normal ftp utan problem, men ej passiv ftp (det skyddade nätet
+blir då alltför öppet).
+
+<P>FWTKs <B>ftp-gw</B> fungerar bra som proxy. Det enda problemet är att
+koden inte är fri, utan bara är licensierad till en person för internt bruk
+inom en organisation (t.ex. SLU, UU eller SUNET). Kommersiell användning är
+ej tillåten. Det gör att vi inte fritt kan distribuera ftp-gw med Bifrost,
+utan var och en måste själv hämta FWTK och kompilera upp ftp-gw. Inom SUNET
+kan vi distribuera binären på begäran (skicka brev till mig och så förser
+jag er med ftp-gw och plug-gw).
+
+<P>För att kunna ladda hem FWTK, måste man först skicka ett brev som ser
+ut som följande:
+
+<PRE>
+To: fwtk-request@tislabs.com
+Subject:
+
+accepted
+</PRE>
+
+<P>Det ska bara innehålla ordet <B>accepted</B> och gå till adressen
+<B>fwtk-request@tislabs.com</B>. I svaret man får, står det var man kan hämta
+<B>fwtk2.1.tar.Z</B>. Packa upp källkodsfilen och gör följande:
+
+<PRE>
+cp Makefile.config.linux Makefile.config
+make
+</PRE>
+
+<P>Kompileringen behöver bara gå så långt att <B>libauth.a</B>,
+<B>libfwall.a</B> och <B>ftp-gw</B> har skapats. Kopiera sedan över ftp-gw
+till Bifrost-distributionen under /usr/etc. En annan proxy som kan vara
+trevlig att ha är <B>plug-gw</B>, vilket är en generell proxy som kastar
+vidare paketen till en förutbestämd destination.
+
+<UL>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/contrib/fwtk-config.tar.gz">Konfigurationfiler för ftp-gw och plug-gw</A>
+  <LI><A HREF="ftp://robur.slu.se/pub/Linux/bifrost/contrib/fwtk-config.txt">Installationsanvisning</A>
+</UL>
+
+<P>ftp-gw stöder inkommande normal och passiv ftp, men kopplar sedan själv
+upp sig med enbart normal ftp. Exempel på hur man använder proxyn från
+insidan av brandväggen (även WS-FTP o.d. kan använda denna proxy):
+
+<PRE>
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% <B>ncftp -u ftp@ftp.sunet.se fw.domain.se</B>
+NcFTP 3.0.0 beta 14 (June 25, 1998) by Mike Gleason.
+Connecting to 10.10.10.1...                                                     
+Password for user "ftp@ftp.sunet.se" at 10.0.10.1: <B>&lt;password&gt;</B>
+
+Logging in...                                                                   
+
+             Swedish University Network SUNET
+                   Archive ftp.sunet.se
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</PRE>
+
+<P>eller:
+
+<PRE>
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% <B>ftp fw.domain.se</B>
+Connected to fw.domain.se.
+220 
+Name (fw.domain.se:user): <B>ftp@ftp.sunet.se</B>
+331-(----GATEWAY CONNECTED TO ftp.sunet.se----)
+331-(220 ftp2.sunet.se FTP server (Version wu-2.4.2-sunet-jh[B18-VR10](1) Tue Nov 3 15:12:30 MET 1998) ready.)
+331 Guest login ok, send your complete e-mail address as password.
+Password: <B>&lt;password&gt;</B>
+230-
+230-             Swedish University Network SUNET
+230-                   Archive ftp.sunet.se
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</PRE>
+
+
+<HR>
+<ADDRESS>
+<A HREF="http://irt.slu.se/tomk/">Tom Johans</A> <A HREF="mailto:Tom.Johans@_NO_SPAM_data.slu.se"> &lt;Tom.Johans@_NO_SPAM_data.slu.se&gt;</A>
+</ADDRESS>
+<!-- hhmts start -->
+Last modified: Fri Mar  8 16:39:17 2002
+<!-- hhmts end -->
+</BODY>
+</HTML>

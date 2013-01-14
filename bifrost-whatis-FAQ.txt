@@ -1,0 +1,187 @@
+
+                         Bifrost-what-is-FAQ
+
+
+What is bifrost?
+
+
+It's a small straight forward open source Linux distribution aimed at infra-
+structure networking, it's highly specialized and tuned, with for a selection 
+of chipsets, interface cards and other hardware. The distribution it also used
+in various R & D projects.  License is GPL.
+
+Also the bifrost is used to name the human network and collaboration/develop-
+ment and other activities sprung out of the project. 
+
+
+Who is it intended for?
+
+"Networking people"  with basic skills and interest in Linux/Unix needing a 
+small flexible network- oriented distribution.
+
+What it's not intended for?
+
+It's not competing with nor a replacement for Ubuntu, Red Hat, SUSE etc. They 
+are doing a good job and have other resources.
+
+What are the objectives?
+
+Hardware selection, software selection, performance tuning and extensive 
+testing in both lab and in field installations. This is a very time-consuming 
+process which requires access to HW, lab and competence. this done in very a 
+tight loop between developer and demanding production use.
+
+Size and media of bifrost?
+
+Right now it's targeted for USB-flash memory about 70 Mbytes (compressed) size 
+and it can be decreased a bit. (Hint. Remove vmlinux if you don't need to 
+profile)
+
+
+What skill is needed?
+
+Basically networking and Unix/Linux.
+
+
+Basic functions?
+
+Routing, firewalling, login services, traffic logging, testing and monitoring 
+and should be easy to extend for new applications.
+
+
+Ipv6 support?
+
+Of course.
+
+
+IP multicast routing?
+
+No. Not for production use.
+
+
+Supported routing protocols
+
+BGP,  OSPF and of course static routes for ip4/ip6 via quagga.
+
+Extra packages?
+
+Yes some, quagga, netlogon utilities.
+ftp://robur.slu.se/pub/Linux/bifrost/opt-x86/
+ftp://robur.slu.se/pub/Linux/bifrost/opt-x86_64/
+http://laas.mine.nu/jens/
+http://laas.mine.nu/jens/bifrost/
+http://www.bifrost-network.org
+
+
+How do I contribute?
+
+Join the bifrost list as a start. Send "subscribe bifrost" in mailbody to 
+majordomo@slu.se
+
+Is it proven?
+
+It's been used in critical production for more ten years. 
+http://www.h-online.com/open/Linux-Kongress-2008--/features/111738
+
+
+Documentation and other resources?
+
+As bifrost consists of many different open source programs, Linux kernel, 
+quagga etc which are well documented in the respective projects. Our intention 
+is to refer and use this documentation. We should also mention recent work 
+done by KTH masterstudents at CSD 
+
+See OSiAN reports:
+http://www.tslab.ssvl.kth.se/csd/projects/0811/
+The goal is to document specific features of the bifrost distro.
+Some work at http://www.bifrost-network.org
+
+Open Source Alternatives to bifrost?
+
+Probably Vyatta at http://www.vyatta.com/
+Maybe http://www.reallynicerouters.com/
+
+
+
+Mailing list, community etc
+
+About 100 people on the bifrost list. A varity of peolpe and organizations, 
+universities and ISP's students etc.
+
+
+Commercial Bifrost support?
+
+We've heard of some startup companies addressing this area.
+
+
+Web interface?
+
+No. Linux/Unix interface now.
+
+R & D 
+
+Throughout the years we've contributed in various areas. Some examples polling,
+later NAPI to achieve robustness with respect of packet load, routing 
+statistics and monitoring, pktgen for easy and cheap testing. LC-trie routing 
+lookup. 10 Gbit/s and multi-queue studies etc. Bifrost has been the first 
+distribution to incorporate many new network features.
+
+Workshop and meetings face-to-face?  
+
+Yes twice a year in Sweden an informal work-shop. We discuss various topics 
+in a very relaxed manner.
+
+Recommended Hardware 
+
+This represents equipment which have "passed" our tests at some point of time.
+NOTE. This implies no guarantee whatsoever. 
+ftp://robur.slu.se/pub/Linux/bifrost/hardware.txt
+
+
+Installation 
+
+ftp://robur.slu.se/pub/Linux/bifrost/bifrost-install-minihowto.txt
+
+
+Future work. Ideas/Plans
+
+Multi-queue/core router follow up. (Basic work is done and incorporated in 
+Bifrost) Energy evaluation of forwarding/networking. Suitable HW for low and 
+midrange. Router virtualization?
+
+
+
+Bifrost 6.0 News
+
+ftp://robur.slu.se/pub/Linux/bifrost/v6/README-bifrost-6.0
+
+
+Papers, References, Related work etc
+
+Papers below included in Linux-Kongress Hamburg 2008
+https://www.iis.se/docs/10G-OS-router_2_.pdf
+http://www.csc.kth.se/~olofh/10G_OSR
+IIS ( http://www.iis.se)is funding multiqueue project which is soon to 
+presented. 
+
+
+
+
+
+
+Major partners, contributors
+
+Uppsala Universitet. http://www.uu.se
+KTH. http://www.kth.se
+SLU. http://www.slu.se
+To mention a few.
+
+
+Sponsorship, support
+
+We have got equipment funding or other support from:
+AMD http://www.amd.com
+INTEL http://www.intel.com
+SUN Microsystems http://www.sun.com
+IIS http://www.iis.se
+Litech http://www.litech.se

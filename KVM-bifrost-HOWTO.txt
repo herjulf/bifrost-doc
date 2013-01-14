@@ -1,0 +1,144 @@
+
+    Creating an image with Bifrost/Linux to be used with KVM
+    --------------------------------------------------------
+
+Andreas Wallin <andreas.wallin@uadm.uu.se>
+It och inköp Uppsala University/Sweden
+
+
+I hope that you find the description below useful. I start 
+with creating a 1GB image file with the dd command called bifrost7.img 
+in the /virtual directory (you can change this by changing IMGDIR). 
+After that I partition that image file with sfdisk. Then we need a block 
+device so that we can create a filesystem on the partition, we create 
+that blockdevice by running kpartx (look at the output of the command so 
+that you use the right loop-device in the following commands, 
+/dev/mapper/loop0p was used in my example). After that we create a ext2 
+filesystem with mkfs.ext2. After that I create a mountpoint for our 
+filesystem, /mnt/bifrost in my example. Then I mount the filesystem, 
+fetch bifrost7 and unpack the bifrost tar-file on our new filesystem. 
+Then I copy some files needed to install grub from my local computer to 
+the new filesystem. With the sed command I uncomment a line in 
+/etc/inittab so that we get a serial console. Then I unmount the 
+filesystem and starts grub so that we can install the grub bootloader on 
+our imagefile. Please note that you need to provide the correct path and 
+name of our image in the first line to grub "device (hd0) 
+/virtual/bifrost7.img". After that I run e2label to set the label on our 
+bifrost partition to bifrost. And then as a last thing I remove the 
+previous created blockdevices. After that you should have an image that 
+you can start from.
+
+I did this on a computer running scientific linux 6.1 (x86_64). The 
+machine I created uses the created diskimage as an IDE disk and for 
+networking I specify an e1000 card.
+
+Regards,
+Andreas
+
+
+===========
+
+IMGDIR="/virtual"
+MOUNTPOINT="/mnt/bifrost"
+
+#
+# Create raw image file
+#
+dd if=/dev/zero of=${IMGDIR}/bifrost7.img bs=1G count=1
+
+#
+# Create partition on image file
+#
+sfdisk --cylinders 977 --heads 64 --sectors 32 ${IMGDIR}/bifrost7.img << EOF
+0 977 L *
+,0
+,0
+,0
+EOF
+
+#
+# Create block-device
+#
+kpartx -av ${IMGDIR}/bifrost7.img
+
+# Previous command gives you a message similar to this
+# add map loop0p1 (253:28): 0 2000895 linear /dev/loop0 1
+
+#
+# Create ext3 filesystem on first partition on image file
+# with the help of the block device created with previous
+# command
+#
+mkfs.ext2 -m0 /dev/mapper/loop0p
+
+#
+# Create mountpoint for bifrost partition
+#
+if [ ! -d ${MOUNTPOINT} ]; then
+    mkdir ${MOUNTPOINT}
+fi
+
+#
+# Mount bifrost partition on mountpoint
+#
+mount /dev/mapper/loop0p1 ${MOUNTPOINT}
+
+#
+# Download bifrost7 to tmp
+#
+cd /tmp/
+wget 
+http://ftp.sunet.se/pub/Linux/distributions/bifrost/v7/bifrost-rc-7.0-2.tar.gz
+
+#
+# Unpack bifrost7 files on partition
+#
+cd ${MOUNTPOINT}
+tar xvzf /tmp/bifrost-rc-7.0-2.tar.gz
+
+#
+# Copy grub stage files to ${MOUNTPOINT}/boot/grub
+#
+cp /boot/grub/e2fs_stage1_5 ${MOUNTPOINT}/boot/grub
+cp /boot/grub/stage1 ${MOUNTPOINT}/boot/grub
+cp /boot/grub/stage2 ${MOUNTPOINT}/boot/grub
+cp /boot/grub/vstafs_stage1_5 ${MOUNTPOINT}/boot/grub
+
+#
+# Activate serial console on ttyS0
+#
+cp ${MOUNTPOINT}/etc/inittab ${MOUNTPOINT}/etc/inittab.ORIGINAL
+sed 's/#s1:45:respawn/s1:45:respawn/' ${MOUNTPOINT}/etc/inittab.ORIGINAL 
+ > ${MOUNTPOINT}/etc/inittab
+
+#
+# Unmount bifrost partition
+#
+cd /
+umount ${MOUNTPOINT}
+
+#
+# Install grub on image
+# my image is located at /virtual/bifrost7.img
+#
+grub
+
+device (hd0) /virtual/bifrost7.img
+geometry (hd0) 977 64 32
+root (hd0,0)
+install (hd0,0)/boot/grub/stage1 (hd0) (hd0,0)/boot/grub/stage2 0x8000 p 
+/boot/grub/menu.lst
+quit
+
+#
+# Set filesystem label
+#
+e2label /dev/mapper/loop0p1 bifrost
+
+
+#
+# Destroy loopback blockdevice of image
+#
+kpartx -dl ${IMGDIR}/bifrost7.img
+
+

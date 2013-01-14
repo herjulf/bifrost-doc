@@ -1,0 +1,58 @@
+
+Bifrost - Preferred Setup of BIOS (rev 1006) on ASUS P2B
+--------------------------------------------------------
+
+Set a passord to protect the BIOS setup. It's not fool proof
+because of possible backdoor passords, but will prevent a
+clueless person from fiddling with the BIOS. You should anyway
+make sure to lock up your routers, firewalls and such in a
+secured room.
+
+SUPERVISOR PASSWORD: <password>
+USER PASSWORD: <none>
+
+
+STANDARD CMOS SETUP
+-------------------
+
+Date: <the current date>
+Time: <GMT/UTC>
+
+		  TYPE	MODE
+		  ----	----
+Primary Master:   AUTO	NORMAL
+Primary Slave:    NONE
+Secondary Master: NONE
+Secondary Slave:  NONE
+
+Halt On: No Errors
+
+
+BIOS FEATURES SETUP
+-------------------
+
+BIOS UPDATE: Enabled	Security Option: Setup
+HDD Sequence: IDE
+Boot Sequence: C only
+
+
+POWER MANAGEMENT SETUP
+----------------------
+
+Power Management: Disable
+
+PWR Button < 4 Secs: Suspend
+PWR Up On Modem Act: Disabled
+AC PWR Loss Restart: Enabled
+Wake On LAN: Disabled
+Automatic Power Up: Disabled
+
+
+PNP AND PCI SETUP
+-----------------
+
+PNP OS Installed: No
+
+The rest of the BIOS setup may be left alone using default
+values, unless you have special demands on your hardware...
+

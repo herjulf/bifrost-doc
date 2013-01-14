@@ -1,0 +1,3851 @@
+<HTML>
+<HEAD>
+<TITLE>Bifrost Network Project - Changelog</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#005500" VLINK="#550000" ALINK="#005500">
+
+<P ALIGN="center"><A HREF="http://bifrost.slu.se/index.html"><IMG ALIGN="center" VALIGN="middle" BORDER="0" SRC="images/bifrost.gif" ALT="Bifrost Network Project"></A>
+
+
+<H1>Vad har gjorts ?</H1>
+
+<P><H2>Händelselogg:</H2>
+
+<H3>2008-01-24</H3>
+<PRE>
+<I>v5.19</I>
+Mycket har hänt under ett och ett halvt år. Småfixande med saker lite
+varteftersom, men ingen ny release. Till stor del beroende på att det
+vi haft har varit stabilt och också att vi som jobbar med framtagning
+av distributionen har haft många andra järn i elden. Nu är den dock
+här - v5.19 och det ska till en del extra kärnor och finesser och
+allmän uppgradering av tillbehörspaketen.
+
+Sedan ska vi jobba på en annan typ av utvecklingsmiljö, som gör
+underhållet lättare, speciellt med fler folk som jobbar på olika
+delar.
+
+Bifrost v5.19 släppt.
+</PRE>
+
+<H3>2006-05-04</H3>
+<PRE>
+<I>v5.18</I>
+Nya program för proc-filsystemet (ps, free, vmstat m.fl.), 2.6.14.5-kärna
+med diverse fixar, glibc-2.3.5, en extra arping som kan använda MAC-adresser,
+iptables 1.3.5, OpenSSH_4.3p2 och OpenSSL 0.9.8a.
+
+Bifrost v5.18 släppt.
+</PRE>
+
+<H3>2005-09-22</H3>
+<PRE>
+<I>v5.17</I>
+Ny dhcp, iptables, ethtool, tcpdump och arpwatch.
+
+Bifrost v5.17 släppt.
+</PRE>
+
+<H3>2005-02-10</H3>
+<PRE>
+<I>v5.16</I>
+
+Minnesläckor i kärnan fixat, samt en extra e1000-driver (e1000tx)
+patchad och därmed omkompilerad kärna, ny distribution och patchar
+m.m. Ny rtstat pga ändring i proc-filsystemet. Ny ifstat2.
+
+Bifrost v5.16 släppt.
+</PRE>
+
+<H3>2005-01-27</H3>
+<PRE>
+<I>v5.15b</I>
+
+En smärre bugg i connection tracking åtgärdad (fixad i senare kärnor)
+och därmed omkompilerad kärna, ny distribution och patchar m.m.
+
+Bifrost v5.15b släppt.
+</PRE>
+
+<H3>2005-01-25</H3>
+<PRE>
+<I>v5.15</I>
+
+Ny kärna kompilerad - 2.6.10 främst för att få in en ny iptables
+(1.2.11) och modul för nivå 7-filtrering med protokolligenkänning
+(L7-filter). Exempelfiler finns under /fw-examples/layer7 i
+distributionen. Iptables och ip6tables patchade med L7-patch och
+kompilerade. /sbin/configure och /etc/config.data/ntp ändrade för att
+bara behöva lägga in ntp-server för initial synkning med ntpdate, på
+ett enda ställe.
+
+Bifrost v5.15 släppt.
+</PRE>
+
+<H3>2004-12-01</H3>
+<PRE>
+<I>v5.14</I>
+
+logger nu länkad på nytt med dietlibc (i fungerande skick).
+
+Iproute2 (ip/tc m.fl.) uppdaterad till version 2.6.9.
+
+depmod och modprobe adderade, vilket gör att man slipper använda insmod
+och långa modulsökvägar. rc-scripten ändrade med anpassning för detta.
+insmod, rmmod et.al. också uppfräschade (module-init-tools 3.1).
+
+iptables 1.2.11 (det har varit en del strul med bl.a. syntax i 1.2.9).
+
+Sista (?) resten av libc5 bortplockad (/lib/ld-linux.so.1*).
+
+
+Bifrost v5.14 släppt.
+</PRE>
+
+<H3>2004-11-24</H3>
+<PRE>
+<I>v5.13</I>
+
+logger fungerar nu återigen (dietlibc-variant som ej funkade korrekt)
+
+Shadow-sviten uppdaterad och därmed ny /etc/shadow (sätt om lösenordet
+från default!). Dessutom /bin/login utbytt och man behöver inte längre
+ha IP-filter öppet för loopback-trafik för att inloggning på konsolen
+ska fungera (den tidigare använde Secure RPC lokalt). Vid
+lösenordsinmatning syns nu '*'.
+
+libreadline uppdaterad.
+
+NTP uppdaterad till 4.2.0 med SSL-stöd och lite andra nyheter mot
+tidigare version.
+
+Tcpdump uppdaterad: tcpdump version 3.8.3, libpcap version 0.8.3
+
+Bifrost v5.13 släppt.
+</PRE>
+
+<H3>2004-10-01</H3>
+<PRE>
+<I>v5.12</I>
+
+Bifrost v5.12 släppt.
+</PRE>
+
+<H3>2004-08-13</H3>
+<PRE>
+<I>v5.12</I>
+
+Ny ifstat2 och OpenSSH 3.8.1p1. Adderat skapande av /sys i rc.S och ett
+entry i /etc/fstab för sysfs.
+</PRE>
+
+<H3>2004-06-29</H3>
+<PRE>
+<I>v5.12</I>
+
+Testar 2.6.7-kärnan. Nytt paket med Snort och Argus. Nytt källkodspaket.
+Ny ifstat2 och OpenSSH 3.8.1p1. Adderat skapande av /sys i rc.S och ett
+entry i /etc/fstab för sysfs.
+</PRE>
+
+<H3>2004-03-30</H3>
+<PRE>
+<I>v5.11</I>
+
+Uppdatering av OpenSSL till 0.9.7d. Tagit bort de sista ATM-binärerna
+och lite hakar för ATM i rc-scripten. Lagt till /dev/random, vilken
+SSL för Apache 2.0.49 ville ha.
+
+Uppdaterat webb-paketet (för Nomad bl.a.) till Apache 2.0.49 med
+OpenSSL.
+
+Bifrost v5.11 släppt.
+</PRE>
+
+<H3>2004-03-15</H3>
+<PRE>
+<I>v5.10</I>
+
+Nykompilerade iptables och ip6tables optimerade för i386 (kraschade
+tidigare på gamla Pentium-burkar t.ex.). Ny kärna - 2.6.3 samt en hel
+del patchar. RAM-disken bortplockad och vi använder nu istället tmpfs
+(diverse script omgjorda för anpassningar till detta). OpenSSH 3.8p1.
+
+Bifrost v5.10 släppt.
+</PRE>
+
+<H3>2004-03-03</H3>
+<PRE>
+<I>v5.9</I>
+
+Bifrost v5.9 släppt.
+
+Innehåller ifstat2 för nätverksstatistik, samt filter för IPv6 som
+slås på per default, samt nya versioner av insmod m.fl.
+</PRE>
+
+<H3>2004-01-30</H3>
+<PRE>
+<I>v5.8</I>
+
+Version 5.8 släppt, samt paket med kärnor (2.6.0-test9). v5.8 är mest
+en buggfix-version av v5.7 (några script, kvarglömda filer,
+dhcp-demonen, tc m.m.).
+</PRE>
+
+<H3>2003-12-11</H3>
+<PRE>
+<I>v5.7</I>
+Ny net-snmp 5.1...   har stöd för protokoll v3.
+
+Håller på med modifiering av rc.interfaces m.fl. för att kunna använda
+sub-interface på ett enkelt sätt.
+</PRE>
+
+<H3>2003-12-09</H3>
+<PRE>
+<I>v5.7</I>
+Mycket förändringar, men ont om tid för dokumentation :)
+
+Version 5.7 precis släppt. Innehåller kärna 2.6.0-test9 och många
+binärer är statiskt länkade med dietlibc och vissa förändringar har
+skett i scripts m.m. Till stora delar en ny distribution, även om
+ramverket är detsamma. Uppdateringar av tillbehörspaket på gång och
+även där eftersträvar vi statiska binärer och annat för att underlätta
+kontinuiteten mellan versionerna.
+</PRE>
+
+<H3>2003-04-10</H3>
+<PRE>
+<I>v5.5</I>
+Kärnan omkompilerad utan stöd för Server Works (vilket inte fungerar), Sådana kort
+kör istället med generic-stödet. Kärnan dessutom för i386 per default, men extra
+tar-filer med P4 och P-II finns.
+
+Ny OpenSSL och OpenSSH, ny LILO statiskt kompilerad, vissa util-binärer omkompilerade
+fast av samma version.
+
+Ramdisken omgjord till två separata - en för /tmp och en för /dev. Stora omskrivningar
+av rc-scripten. Synkning av hårdvaruklockan sker en gång per dygn via crontab.
+Konsol-loggningen ställd så att den inte ska störa konsolarbetet för mycket.
+
+Bifrost v5.5 släppt och även ny Apache+OpenSSL.
+</PRE>
+
+<HR>
+
+<H3>2002-08-30</H3>
+<PRE>
+<I>v5.4</I>
+2.4.19-kärna och ny OpenSSL och OpenSSH, dessutom några småändringar i rc-script.
+
+Bifrost v5.4 släppt.
+</PRE>
+
+<HR>
+
+<H3>2002-07-18</H3>
+<PRE>
+<I>v5.3</I>
+Uppdatering av OpenSSH till v3.4p1, samt lspci, setpci och ethtool.
+
+Bifrost v5.3 släppt och tillika källkod m.m.
+</PRE>
+
+<HR>
+
+<H3>2002-06-24</H3>
+<PRE>
+<I>v5.3</I>
+Uppgradering av Apache+SSL p.g.a. chunk-bugg. Nomad-paketet uppdaterat i samma veva,
+med lite omskrivna script o.d.
+</PRE>
+
+<HR>
+
+<H3>2002-04-15</H3>
+<PRE>
+<I>v5.2</I>
+Zebra kompilerad statiskt för att fungera även för äldre system.
+Tar bort libreadline och ändrar i rc-script för korrekta pather m.m.
+
+Släpper v5.2 + patch. Ny källkodsfil också.
+</PRE>
+
+<HR>
+
+<H3>2002-04-10</H3>
+<PRE>
+<I>v5.2</I>
+Kompilerat upp Zebra som ska paketeras. Lagt till libreadline som
+Zebra är beroende av.
+
+DHCP (dhcpd och dhcrelay) länkad mot glibc och ny version.
+
+</PRE>
+
+<HR>
+
+<H3>2002-03-22</H3>
+<PRE>
+<I>v5.1</I>
+
+Uppgraderat shadow-paketet med login, passwd m.fl. Telnet-inloggning fungerar
+nu (även som root om securetty tas bort eller ändras) och SSH är omkompilerat
+med stöd för MD5-lösenord, som nu är satt som default. zlib uppgraderat.
+
+Webbsidor för Bifrost Nomad är omgjorda en aning, men arbete kvarstår att fixa
+motsvarandd delar i IP-login (cgi-binären). Ny upplaga av Apache+SSL, där
+webbsidorna finns med.
+
+Bifrost v5.1 släppt, samt nya källkoden.
+</PRE>
+
+<HR>
+
+<H3>2002-03-08</H3>
+<PRE>
+<I>v5.0a</I>
+
+Utvecklingssystemet nu baserat på en RedHat 7.2 + lite extra tillbehör.
+Stora delar av distributionen omkompilerade och till viss del nya
+versioner av programvaran. Inte så mycket ny funktionalitet, utan mer en
+upprensning/översyn och modernisering av befintlig programvara.
+
+Bifrost v5.0a släppt, samt nya utvecklingspaketet, nytt källkodsträd
+och diverse tillbehörspaket för grunddistributionen.
+
+Webbinformationen omarbetad på bifrost.slu.se.
+</PRE>
+
+<HR>
+
+<H3>2002-01-15</H3>
+<PRE>
+<I>v4.9</I>
+Omkompilerad kärna med senaste utvecklings-paketet.
+
+Ändrat ett par filter-regler i nomad-login/out, samt några
+ändringar i rc-script.
+
+Bifrost v4.9 släppt.
+
+Planer på att omstrukturera distributionen och kunna köra med
+en mindre grunddistribution, där sedan paket lyfts in vartefter
+behov uppstår. Enklare för andra utvecklare att bidraga med
+tillägg till systemet. NAPI ska med i kärnan ( >= 2.4.16)
+och diverse program ska uppgraderas. Grundläggande program som
+ls, arch m.fl. ska ses över och källkod plockas fram till
+samtliga system-delar.
+</PRE>
+
+<HR>
+
+<H3>2001-11-29</H3>
+<PRE>
+<I>v4.8</I>
+Nya iputils, snmp och omkompilerad httpsd, samt ny OpenSSH.
+
+Nytt utvecklingspaket.
+
+Bifrost v4.8 släppt.
+</PRE>
+
+<HR>
+
+<H3>2001-10-11</H3>
+<PRE>
+<I>v4.7</I>
+Labbande med Nomad-filtrering (netfilter) och uppdaterat Apache httpsd
+för stöd för rewrite-funktioner o.d. Modifieringar av konfigurationen
+för IP-login och Apache. Exempelfilter för Nomad adderade till distributionen.
+Ny version av e1000-drivern (inte helt bra ännu, men bättre...).
+
+Inget stöd direkt i distributionen för PAM och LDAP för Nomad, men
+en pam.conf skapad och källkod för det som behövs följer med i
+bifrost.sources.tar.gz.
+
+Bifrost v4.7, samt källkod m.m. släppt.
+</PRE>
+
+<HR>
+
+<H3>2001-09-27</H3>
+<PRE>
+Uppdaterat bifrost.dev.tools.tar.gz med rats-1.2 (tidigare rats-1.1).
+
+</PRE>
+
+<HR>
+
+<H3>2001-09-07</H3>
+<PRE>
+<I>v4.6</I>
+
+Bifrost v4.6 släppt, samt nya bifrost.sources och utvecklingspaketet.
+</PRE>
+
+<HR>
+
+<H3>2001-08-22</H3>
+<PRE>
+<I>v4.6</I>
+
+2.4.9-kärna, ändringar i script, tagit bort några gamla program
+som ej används eller fungerar med 2.4-kärnan, ny Iproute2 och
+iputilies, ny iptables, nya ATM-program och ny Zebra.
+
+Bifrost v4.6 har nu stöd för e1000 Gigabit-kort (med modifierad driver)
+och ger bra flås i linan. Testkör v4.6 innan den ska släppas.
+</PRE>
+
+<HR>
+
+<H3>2001-06-21</H3>
+<PRE>
+<I>v4.5</I>
+
+2.4.5-kärna, nya ATM-verktyg.
+</PRE>
+
+<HR>
+
+<H3>2001-06-07</H3>
+<PRE>
+<I>v4.4</I>
+
+2.4.0-kärna, ändringar i script, ny IP-login, ny SSH,
+ny NTP och ny Apache+OpenSSL.
+</PRE>
+
+<HR>
+
+<H3>2001-04-09</H3>
+<PRE>
+<I>v4.3</I>
+
+Ändrat på ett SLU-specifikt script och några exempel-filter.
+
+Tagit bort X11 forwarding i sshd_config.
+
+Uppdaterat NTP med en ny och buggfixad version (bl.a. senaste
+root-buggen).
+
+Ändrat filrättigheterna på /dev/tty (/dev.real/tty).
+
+Testkört NTP och exploit mot den nya upplagan (dyker upp
+varning i loggen).
+
+Släppt Bifrost v4.3 och ny bifrost.sources.tar.gz.
+</PRE>
+
+<HR>
+
+<H3>2001-03-20</H3>
+<PRE>
+<I>v4.2</I>
+
+Adderat sshow (analys av SSH-protokoll).
+
+Ny OpenSSH (2.5.2p1).
+
+Tagit bort pimd och ersatt med zpimd.
+
+Släppt Bifrost v4.2.
+</PRE>
+
+<H3>2001-03-12</H3>
+<PRE>
+<I>v4.2</I>
+
+OpenSSL 0.9.6a och försöker få till Apache 1.3.14+SSL. Strul
+med kompileringen - får vänta med det ett tag.
+</PRE>
+
+<HR>
+
+<H3>2001-03-08</H3>
+<PRE>
+<I>v4.2</I>
+
+Nya programversioner: tcpdump-3.6.2 och dsniff 2.3 (med allt vad som
+ingår). Dessa kompilerade med libpcap-0.6.2, libnids-1.16 och
+Libnet-1.0.2a
+
+Argus 1.8.1 + patch och Snort 1.7 är också nya.
+
+</PRE>
+
+<HR>
+
+<H3>2001-03-07</H3>
+<PRE>
+<I>v4.1</I>
+
+Lagt till en rad för "profiling" i etc/lilo.conf. Kan bortkommenteras
+vid behov och ger en fil /proc/profile med information om systemet.
+
+Uppgraderat SSH till OpenSSH 2.5.1p2 (med stöd för sftp) samt modifierat
+configure för att skapa tre olika nycklar (RSA1, RSA och DSA).
+
+Nya modutils - v2.4.3.
+
+Släppt v4.1.
+</PRE>
+
+<HR>
+
+<H3>2001-02-20</H3>
+<PRE>
+<I>v4.0</I>
+
+En SSH-patch med OpenSSH 2.3.0p1 och glibc-2.1.3 finns för
+de äldre Bifrost-systemen (v3.0d och tidigare).
+
+Släppt iväg både v4.0beta9 och v4.0.
+</PRE>
+
+<HR>
+
+<H3>2001-02-16</H3>
+<PRE>
+<I>v4.0</I>
+
+v4.0beta9 klar sedan ett tag, men inte officiellt upplagd. Ska
+övergå med någon smärre modifikation till att bli v4.0.
+
+Lagt till sort och ett test-script för att köra "top" på
+routing-cachen. Måste modifieras en hel del för att vara
+användbart (blir när det finns tid över).
+
+Fixat en bugg i rc.interfaces och lagt till export IGNOREEOF=10
+i .bash_profile.
+<HR>
+
+<H3>2001-02-06</H3>
+<PRE>
+<I>v4.0beta9</I>
+
+Lagt till Zebra 0.90a (zebra, ospfd, bgpd, vtysh) och även ncurses
+(behövs för vtysh).
+
+Stökat om lite i filter-exempel. Lyft bort SLU-specifika saker ur
+rc-scripten och lagt det vid sidan av. Plockat bort 'ifconfig/route'
+ur rc-scripten och kommer bara att använda 'ip'.
+</PRE>
+
+<HR>
+
+<H3>2001-01-19</H3>
+<PRE>
+<I>v4.0beta8</I>
+
+Kompilerat ends-modulen för nät-statistik. Adderat ett script
+för läsning av oops-dumpar lagda på diskett. Gjort om backup-scriptet
+så att backupen körs över nätet direkt - backup.total borttagen,
+liksom backup.exclude.
+
+Släppt v4.0beta8
+</PRE>
+
+<HR>
+
+<H3>2001-01-16</H3>
+<PRE>
+<I>v4.0beta7</I>
+
+Ny iptables 1.2. Kärnan är nu 2.4 och med några patchar för
+oops-dump till diskett, status för Ethernet-device i proc-filsystemet
+och andra tulip-drivers. Omkompilerade sensor-moduler och execlog.
+
+Gjort en först patch och distribution för 4.0beta7, men ska testköra
+innan den släpps.
+
+Släppt uppdaterad bifrost.sources.tar.gz och Linux-kärna 2.4.0.
+
+Testkört grundläggande och sedan släppt iväg v4.0beta7.
+</PRE>
+
+<HR>
+
+<H3>2001-01-12</H3>
+<PRE>
+<I>v4.0beta7</I>
+
+Ny version av lsof.
+
+Buggfix i glibc-2.2, spelar ingen roll för just Bifrost i dess
+vanligaste användning, men man vet aldrig...
+
+bifrost.dev.tools.tar.gz som innehåller glibc-2.2 uppgraderad.
+
+Ska börja testa den första skarpa versionen av 2.4-kärnan.
+</PRE>
+
+<HR>
+
+<H3>2000-12-19</H3>
+<PRE>
+<I>v4.0beta7</I>
+
+Ipchains uppgraderad till 1.3.10 (inga viktigare buggfixar).
+
+Dokumentationen har kompletterats en hel del med nya versioner
+av filerna för ipchains, men också ordentligt med dokumentation
+för netfilter/iptables. Ligger under <B>Docs</B> i
+bifrost.sources.tar.gz.
+</PRE>
+
+<HR>
+
+<H3>2000-12-18</H3>
+<PRE>
+<I>v4.0beta6</I>
+
+Ipmasqadm använder moduler som inte längre finns med i kärnan (2.4).
+Programmet dock uppdaterat, liksom lib-filerna. Fungerar det med
+iptables ?
+
+Strip kört på samtliga binärer, tog av misstag några moduler också,
+men det fungerade ju inte - lade tillbaka orginalen :-)
+
+Släppt version 4.0beta6.
+</PRE>
+
+<HR>
+
+<H3>2000-12-15</H3>
+<PRE>
+<I>v4.0beta5</I>
+
+Avverkat beta4 och är nu uppe i beta5. Många småändringar, men också
+byte av glibc till 2.2. Omkompilering av de binärer som tidigare var
+kompilerade med glibc-2.1.3.
+
+Lagt till binärerna och lib-filerna för iptables. Har dock ej provkört
+dessa.
+
+Lägger upp Bifrost v4.0beta5 och tillhörande kärna, utvecklingspaket
+och källkod. Utvecklingspaketet inkluderar nu diverse program för att
+testa C-kod (leta efter buffer overflows och i övrigt dåligt skrivna
+rutiner m.m.).
+</PRE>
+
+<HR>
+
+<H3>2000-12-07</H3>
+<PRE>
+<I>v4.0beta3</I>
+
+Lagt in stöd för I2C och I2O i kärnan. Sensor-moduler
+kompilerade och testade. Återstår en del arbete för
+att få det att fungera (säkert bara konfiguration).
+De moderkort jag testar på har LM80 som temp- och
+fläkt/spännings-sensor.
+Döpt om rc.lm78 till rc.sensors. Ett directory
+/sensors ska innehålla modulerna för sensorer och liknande.
+
+Labbat med load balancing mellan 4 interface. 100Mbit/s
+full duplex kör nu parallellt och det borde därmed åtminstone
+i teorin kunna resultera i 400Mbit/s. Prestandamätningar av
+olika slag krävs. Exempel på hur man kör med load balancing
+finns i rc.init.routes för 'expgw'. Motsvarande initiering
+måste till i andra änden. Lite mer tillkommer om man t.ex.
+också behöver en default route via dessa interface.
+Mer info finns i distributionen i en "FAQ" under:
+
+  /etc/docs/load-balancing
+
+Hittat bugg i initieringen av ATM - påverkade funktionen
+när load balancing användes på ett 4-portars tulip-kort.
+</PRE>
+
+<HR>
+
+<H3>2000-12-06</H3>
+<PRE>
+<I>v4.0beta3</I>
+
+Nykompilerad snmpd, den gamla var gjord för libc5, men
+gjorde segfault av någon anledning. Kompilering för libc6
+fick det hela att snurra på bättre (och med avsevärt mindre
+binär).
+
+Testat nya snmpd på Expgw.
+
+Lagt upp förnyade exempel-filter och döpt om directoryt
+/default till /fw-examples.
+
+Kompilerar om modulen för LM78, den gamla var fortfarande för
+2.2.16-kärnan. Fungerar dock ej med 2.4...
+Adderat stöd för I2O. Behöver detta för att kunna använda
+de nya temp-modulerna.
+
+Tagit bort execlog-modulen. Den fungerar ej i nuvarande
+skick med 2.4-kärnan. Koden behöver skrivas om lite.
+</PRE>
+
+<HR>
+
+<H3>2000-12-05</H3>
+<PRE>
+<I>v4.0beta2</I>
+
+Ytterligare fixar i script. Lagt upp nya binärer för ATM då
+de gamla slutat fungera i och med kernel-bytet.
+
+Patchat upp tcpdump för buffer overflows o.d.
+
+Ny bifrost.sources.tar.gz upplagd.
+
+Kompilerat om 2.4.0-test11 med stöd för IP_ROUTE_MULTIPATH.
+Kärnan kompilerad för P-II, Celeron m.fl. Det gör att den inte
+fungerar med t.ex. K6 (har verifierat detta). De med äldre system
+behöver därför kompilera upp egen kärna och tillhörande moduler.
+Börjat provköra nya distributionen och ska prova upp till 4 st
+parallella 100Mbit interface samtidigt (om det går).
+</PRE>
+
+<HR>
+
+<H3>2000-11-24</H3>
+<PRE>
+<I>v4.0beta1</I>
+
+Provkört den första v4.0beta1 och i samband med det fixat till
+många småsaker i diverse script och konfigurationer. Några få
+binärer och lib-filer utbytta.
+
+En ny Snort uppkompilerad och uppdaterad konfig-fil.
+</PRE>
+
+<HR>
+
+<H3>2000-11-22</H3>
+<PRE>
+
+Fixat termcap-entry för xterm så att t.ex. 'vi' inte lägger till
+blanktecken vid append (ett irriterande fel som hängt med länge).
+
+Lagt till lclint i development-paketet. Rätt använt kan det hjälpa
+till med att få stil på C-koden (förutom gcc -Wall).
+
+Ska testköra en första v4.0beta1 med 2.4.0test11-kärna.
+
+Edit har bytts ut från 'Joe' till 'e3em'. Betydligt mindre binär
+(under 1KB) och som har motsvarande Emacs-funktionalitet. Källkoden
+finns i bifrost.sources.tar.gz.
+
+Har lagt till 'nasm' i development-paketet, behövdes för e3em.
+Bra komplement till vabliga 'as'.
+
+Uppdaterat modutils till 2.3.21.
+
+Tagit bort stöd för FDDI, PPP och PCMCIA. Det kan läggas till av dem som
+behöver. Kärnan är för övrigt kompilerad för Celeron, Pentium-II m.fl.
+Kör man med en K6 eller vill kunna utnyttja P-III eller P-4, kan
+man kompilera upp en egen kärna och moduler.
+ATM med ENI155 finns kvar - kör ett sådant kort själv.
+
+Lade till stöd för DOS-filsystem och VFAT, utifall att man vill använda
+disketter som ej har ext2-filsystem.
+</PRE>
+
+<HR>
+
+<H3>2000-11-15</H3>
+<PRE>
+
+Nya modutils 2.3.19, iproute2 ss001007, iputils ss001110.
+
+Lagt till devfs för UNIX98-PTYs. Återstår test av detta.
+
+defrag-optionen i nya kärnan måste undersökas.
+</PRE>
+
+<HR>
+
+<H3>2000-11-09</H3>
+<PRE>
+
+Nya utvecklings- och källkodspaket för Bifrost v4.0släppt.
+</PRE>
+
+<HR>
+
+<H3>2000-11-08</H3>
+<PRE>
+
+Mycket utvecklingsarbete har skett på tulip-drivern och för
+2.4-kärnan. Vissa problem med 2.4 kvarstår, minnesallokering t.ex.
+
+Arbetet med Bifrost 4.0 har påbörjats så smått. Libc6, 2.4-kärna,
+anpassning av script och ett nytt utecklingspaket och lite annat
+är vad som pysslas med. Utvecklingspaketet kommer bl.a. att bestå av
+egcs-2.91.66, en patchad glibc-2.1.3, make-3.79.1 och binutils-2.10.1p.
+Några andra delar som behöver uppfräschning är modutils och util-linux.
+
+Experiment med Gbit-kort pågår.
+</PRE>
+
+<HR>
+
+<H3>2000-09-04</H3>
+<PRE>
+
+Nytt moderkort testat då det visar sig vara svårt att få
+tag på P3B-F (för att inte tala om P2B).
+
+ASUS CUBX FCPGA
+
+Även CPU testad: P-III 700MHz Coppermine FC-PGA.
+
+Se hårdvarulistan...
+</PRE>
+
+<HR>
+
+<H3>2000-09-04</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0d</I>
+
+Uppdaterat källkoden för diverse småprogram m.m.
+(bifrost.sources.tar.gz).
+
+Bytt ut SSH mot OpenSSH och har därmed stöd även för protokoll 2.
+Diverse script och annat anpassat i och med bytet. Bl.a. ett par
+nya bibliotek (libz och libdb). Stöd för tcp-wrapper finns och kan
+läggas in i /etc/hosts.allow.
+
+Uppdaterat iflist och configure.
+
+Bytt ut standard-versionen av tulip-drivern mot den som var "extra"
+tidigare, samt lagt in en senare version av den. Kernel-källkoden
+uppdaterad.
+
+Kompilerat om moduler för ipmasqadm (för 2.2.16-kärnan).
+
+Adderat dsniff, urlsnarf och mailsnarf för spaningsarbete.
+
+Bytt version av snmp till en betydligt senare.
+
+Filer som ska tas bort:
+
+        /etc/snmpd.conf
+        /etc/ssh_config
+        /etc/sshd_config
+        /usr/lib/mib.txt
+        /.ssh/random_seed
+        /filter/.ssh/random_seed
+        /modules/tulip2.o
+
+
+Version 3.0d släppt.
+</PRE>
+
+<HR>
+
+<H3>2000-07-28</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0c</I>
+
+Version 3.0c släppt.
+</PRE>
+
+<HR>
+
+<H3>2000-07-26</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0c</I>
+
+Ännu en uppdatering av DHCP, till 2.0pl3. Några bättre
+patchar av dhcp-klienten, vilket iofs inte berör Bifrost.
+Dock en fördel att ha tillgång till en fixad källkod i
+händelse av att man använder den till andra system...
+
+En ny bifrost.sources.tar.gz därmed ihoppackad.
+</PRE>
+
+<HR>
+
+<H3>2000-07-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0c</I>
+
+Uppdatering med SSH 1.2.30, DHCP 2.0pl2 och wu-ftpd 2.6.1
+(kompilerad med 'PARANOID').
+
+Packat ihop en ny bifrost.sources.tar.gz.
+</PRE>
+
+<HR>
+
+<H3>2000-07-06</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0b</I>
+
+Släppt v3.0b och uppdaterat Bifrost-källkoden och källkoden för
+kärnan.
+</PRE>
+
+<HR>
+
+<H3>2000-07-05</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0b</I>
+
+Fixat med rc.S för att komma tillrätta med /proc och backuper.
+
+Lagt in 2.2.16-kärnan och moduler i distributionen. awk (gawk) och sed
+adderade. System.map och map under /boot uppdaterade.
+</PRE>
+
+<HR>
+
+<H3>2000-06-30</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0a</I>
+
+Lagt upp en ny version av IP-login. Bifrost v3.0a släppt.
+
+Ska börja provköra 2.2.16-kärnan. Kommer att addera sed och gawk
+till nästa version (av lite äldre versioner, som inte är så stora).
+</PRE>
+
+<HR>
+
+<H3>2000-06-29</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0a</I>
+
+backup.total under /sbin är modifierad för att verkligen kunna ta
+en fungerande total backup av ett system i drift. rc.S är också
+anpassat i samma veva (plockat bort ett par rader som inte fungerade
+som tänkt).
+</PRE>
+
+<HR>
+
+<H3>2000-05-08</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0a</I>
+
+Adderat <B>nice</B> till distributionen (från GNU sh-utils 2.0).
+
+Lagt till några IDS-regler för Snort i /etc/snort/vision-lib.
+</PRE>
+
+<HR>
+
+<H3>2000-05-04</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0</I>
+
+Version 3.0 släppt.
+</PRE>
+
+<HR>
+
+<H3>2000-04-28</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0</I>
+
+Det fungerar inte att använda cron för filter-ändringar om man kör
+som användaren filter. Det måste göras som root. Ipchains klagar över
+rättigheter, trots suid-bit. Manuell körning som filter fungerar dock.
+
+Vid masquerading används portarna 61000 till 65096 (4K st). Om det inte
+räcker, behöver man ändra i filen /usr/src/linux/include/net/ip_masq.h
+i källkoden för kärnan:
+
+  #define PORT_MASQ_BEGIN 61000
+  #define PORT_MASQ_END   (PORT_MASQ_BEGIN+4096)
+
+Sätt då ett lägra värde än 61000 och öka på 4096 i motsvarande grad.
+Kärnan och masquerade-modulerna måste därefter omkompileras. Tyvärr
+finns inte dessa parametrar i proc-filsystemet.
+
+Ett par nya och omskrivna script under /contrib/scripts för att sätta
+default route och konfigurera om enstaka Ethernet-interface:
+
+set_def_route
+set_if_config
+
+De aktiverar dessutom ändringarna i samband med att man kör scripten.
+
+Sammanställer och testar nya v3.0...
+</PRE>
+
+<HR>
+
+<H3>2000-03-27</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0</I>
+
+Skippar nu beta-stämpeln, distributionen har nått tillräcklig mognad.
+
+Lägger till ytterligare ett par script under /contrib.
+
+Adderat include-filer som kan behövas för kompilering av libc 5.4.46,
+till bifrost.dev.tools.tar.gz ("utvecklingspaketet"). Notera att detta
+paket inte kan adderas till en Bifrost-distribution och köras rakt av,
+utan är tänkt att läggas in på en "vanlig" Linux-distribution.
+</PRE>
+
+<HR>
+
+<H3>2000-03-26</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta9</I>
+
+Version 3.0beta9 släppt.
+</PRE>
+
+<HR>
+
+<H3>2000-03-24</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta9</I>
+
+Lagt till en .bash_logout som kan editeras så att man automatiskt
+ommonterar till read-only när man loggar ut. Bortkommenterat per
+default, dock.
+
+Experimenterat med CBQ/TBF för ICMP-trafik. Ligger med som en option
+och har ett eget rc-script och egen fwrules-fil (fwrules.rate).
+
+/etc/config har bytt namn till /etc/config.flags och
+/etc/options har bytt namn till /etc/config.data. Samtliga rc-script
+anpassade till det och några andra småsaker ändrade på samma gång.
+
+Skrivit om rc.interfaces så att det finns en extra option till scriptet.
+Den visar vilka inställningar som används när interfacet tas upp. Ex:
+
+
+machine:/# /etc/rc.d/rc.interfaces eth1 check
+
+Interface: eth1 = Private Internal Net
+
+Uses:
+ip a add 10.0.0.2/24 broadcast 255.255.255.255 dev eth1
+ip link set eth1 up
+
+IP: 10.0.0.2/24
+Long Netmask: 255.255.255.0
+Network: 10.0.0.0
+Broadcast: 255.255.255.255
+
+Options:
+
+Spoof Protection               (CONFIG_NO_SPOOF): yes
+Disable Source Routing        (CONFIG_NO_SOURCE): yes
+Proxy ARP                     (CONFIG_PROXY_ARP): no
+Send ICMP Redirects            (CONFIG_REDIRECT): yes
+Accept ICMP Redirects   (CONFIG_ACCEPT_REDIRECT): no
+Log Src Addr With No Route (CONFIG_LOG_MARTIANS): yes
+Multicast Forward            (CONFIG_MC_FORWARD): yes
+
+
+
+Skapat ett contrib-directory där olika script som inte direkt används
+av oss själva i distributionen, lagts upp.
+
+Gjort ändringar i koden för remount. Fixat smärre detaljer i IP-login.
+Därmed har en ny bifrost.sources.tar.gz släppts.
+
+Lagt tillbaka /tmp med länk, för att lilo ska kunna köras direkt vid
+skapandet av disken. Tas ändå bort vid varje omstart och skapas på nytt.
+
+Adderat förval för Zebra, som alternativ till Gated som routing-demon.
+Binärerna finns dock ej med ännu, pga labbande och instabilitet hos
+Zebra än så länge.
+
+Testkör distributionen med ovanstående ändringar för att eventuellt
+släppa den som ny release som den är...
+</PRE>
+
+<HR>
+
+<H3>2000-03-13</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta8</I>
+
+Nya exempel-filter, ny syslog-ng, källkoden för 2.2.14-kärnan upplagd,
+nytt script för total-backuper (kräver stor RAM-disk) och en del
+ändringar i rc-script. Framförallt har det ändrats så att /tmp och
+/proc skapas vid boot. Detta för att bättre anpassa till
+backup.total-scriptet. Terminfo-filer för stöd för diverse terminaler.
+
+Version 3.0beta8 släppt.
+</PRE>
+
+<HR>
+
+<H3>2000-02-20</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta8</I>
+
+Går tillbaka till att använda bzImage istället för zImage vid
+kompilering av kärnan. Låter desutom all SCSI-kod finnas med
+och tar därmed bort motsvarande moduler. Det har nämligen visat
+sig omöjligt att få det att fungera med vissa SCSI-diskar och
+CD-brännare trots korrekta insmod av modulerna.
+
+Funderingar finns på att strukturera om en del av uppstarts-scripten.
+Närmare bestämt de som hanterar nätverkskorten och modifieringarna
+av proc-filsystemet. Olika åsikter av vad som är enkelt att hantera,
+gör att vi måste hitta en bättre lösning som tillfredställer allas
+behov (ska se ut som gamla klassiska script, men ändå fungera enligt
+en annan smidigare modell, eller nåt...).
+
+Provar att kompilera upp en kärna av typen 2.2.15-pre9 och ser om de
+nätverksfixar som finns med där, löser våra problem med konstiga
+resurs-låsningar (som inte setts på en Bifrost, men likväl ett annat
+system med 2.2.14-kärna).
+
+Falskt alarm vad gäller de synbara låsningarna i 2.2.14 - de var inte
+relaterade till kärnan, utan berodde på Samba 2.0.6 (fel som inte finns
+i 1.9.18p10). Däremot har vi tidigare kunnat konstatera fel i 2.2.13,
+så den bör undvikas. Den uppfixade 2.2.15pre9 provkörs nu på några olika
+maskiner, men i distributionen är det däremot 2.2.14 som gäller.
+</PRE>
+
+<HR>
+
+<H3>2000-02-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta8</I>
+
+Buggar i nätverkskoden i 2.2.13 har fått oss att byta ut mot 2.2.14.
+Det finns dock misstankar om att andra buggar fortfarande finns kvar
+och som påverkar oss. 2.2.15 borde fixa detta, men det går först att
+säga säkert efter att ha testat några av pre-2.2.15-patcharna.
+
+Många ändringar har skett i script och brandväggsregler
+(exempel-filtrena).
+
+Försöken att införa PAM och OpenSSH, stupade på problem att få till
+stabiliteten och att en hel del delar var beroende ab glibc, vilket
+vi inte ännu använder oss av.
+
+Glibc får bli något för nästa generation av distributionen, det skulle
+innebära alltför stora ändringar som det ser ut nu.
+
+Remount fungerar inte fullt ut under uppstart av systemet, om
+filsystemet alldeles innan har reparerats. Att ersätta det med likvärdig
+montering till skrivbart läge, med vanliga mount fungerar dock.
+Varför detta inträffar har vi inte kunnat utröna. I rc.S är nu
+ändringen införd bara för att vara säker på att systemen går igång
+utan ommonterings-problem.
+</PRE>
+
+<HR>
+
+<H3>1999-12-14</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta7</I>
+
+Nya versioner av e2fsck och mke2fs (1.18).
+
+Version 3.0beta7 släppt, samt <B>e2fsprogs</B> adderat till
+bifrost-sources.tar.gz.
+</PRE>
+
+<HR>
+
+<H3>1999-12-08</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta7</I>
+
+Fix av bugg i IP-login, nu fungerar den ordentligt med
+konfigurationsfil och allt...
+
+Ny bifrost.sources.tar.gz med nya IP-login, C-Kermit, Snort och
+ATM-koden för kärnan (samt ATM-binärerna i övrigt).
+</PRE>
+
+<HR>
+
+<H3>1999-12-08</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta7</I>
+
+Ändringar av exempel-filter.
+
+En exec-loggningsmodul adderad, vilken dock bör användas med
+viss försiktighet.
+
+Ny version av IP-login (med tillbehör) under utprovning.
+
+C-Kermit uppkompilerad som en statisk binär med ncurses-stöd.
+Finns att hämta som extra "add-on".
+</PRE>
+
+<HR>
+
+<H3>1999-11-19</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta5 - v3.0beta6</I>
+
+Omskrivning av configure och setrouter för att förbättra konfigurationen
+av routing-optioner. Setrouter ställer nu frågor om hur man vill ha
+sakerna konfigurerat.
+
+Versionerna 3.0beta5 och 3.0beta6 släppta samtidigt.
+</PRE>
+
+<HR>
+
+<H3>1999-11-16</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta5 - v3.0beta6</I>
+
+Beta 5 ej släppt, men sammanställd. Nya fixar för saker på gång
+som ska med i Beta 6.
+
+Ett IDS (Intrusion Detection System) vid namn <B>Snort</B> inkluderas
+och har provkörts ett tag med gott resultat. Kan även användas som
+komplement till tcpdump.
+<HR>
+
+<H3>1999-11-02</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta5</I>
+
+Nya binärer från Iproute2 och Iputils, samt ny rdisc och tcpdump.
+
+Ny 2.2.13-kärna och modifieringar av script för att styra
+'always defrag' o.d. Modulerna omkompilerade för 2.2.13.
+
+Några nya moduler upplagda för att kunna köra med Adaptec-SCSI
+och t.ex. CD-brännare (på logg-maskiner som behöver arkivering).
+Kan laddas in i kärnan vid behov. Två olika moduler finns nu
+för NCR/Symbios-kontrollern.
+
+v3.0beta5 ska testköras ordentligt innan den släpps...
+</PRE>
+
+<HR>
+
+<H3>1999-10-26</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta4</I>
+
+Problem med en del nya moderkort att hitta och/eller boota från
+flashdiskar, samt att minnesstorleken rapporteras fel på vissa kort.
+Gamla modeller är svåra att få tag på och BX-chipset:et
+är på utgående. Både ASUS och AOpen är informerade om problemen
+och jobbar på sitt håll med fixar till BIOS, men felen kan ligga
+i diskarna också.
+
+Ny strukturering av filter-regler är på gång, för att underlätta
+ändringar under drift.
+
+En till syslog-demon adderad, vilken klarar av bättre strukturering
+och uppsortering av data på reguljära uttryck. Ska även klarar TCP-
+baserad syslog. Kallas syslog-ng. Start av syslogd eller syslog-ng
+kan väljas via chkconfig. Denna uppstart är lagd i /ect/rc.d/rc.syslog.
+Biblioteket libol har tillkommit och några script har ändrats för
+att passa in.
+
+Valet av storleken på RAM-disken (64MB eller default 8MB) har bytt
+variabel-namn från full-router till det mer passande big-ram-disk.
+
+Version 3.0beta4 testkörd och släppt.
+
+Vi har börjat titta på 2.2.13-kärnan och kollar att ATM-kod och annat
+går att lyfta in. Om 2.2.13 visar sig fungera bra, så kan det bli att
+övergå till den från 2.2.5. I 2.2.13 kan man t.ex. sätta defrag-flaggan
+via proc-filsystemet och slipper därmed två olika kärnor (av den
+anledningen i alla fall).
+</PRE>
+
+<HR>
+
+<H3>1999-09-30</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta3</I>
+
+Fix av TCP-spoofing enligt:
+
+--- ../orig/linux/net/ipv4/tcp_ipv4.c   Thu Aug 12 17:51:37 1999
++++ linux/net/ipv4/tcp_ipv4.c   Sun Sep 26 21:38:07 1999
+@@ -525,7 +525,8 @@
+ 
+ static inline __u32 tcp_v4_init_sequence(struct sock *sk, struct sk_buff *skb)
+ {
+-       return secure_tcp_sequence_number(sk->saddr, sk->daddr,
++       return secure_tcp_sequence_number(skb->nh.iph->daddr,
++                                         skb->nh.iph->saddr,
+                                          skb->h.th->dest,
+                                          skb->h.th->source);
+ }
+
+
+och därmed omkompilering av de både kärnorna.
+
+Version 3.0beta3 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-09-23</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta2</I>
+
+Version 3.0beta2 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-09-21</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta2</I>
+
+Flytt av var default-policy för filterregler sätts upp i fwrules-filerna.
+
+Ny version av wu-ftpd (2.5.0-1).
+
+Ny binär för att kunna göra forward på DHCP-paket;  /sbin/dhcrelay
+(Manualsida finns i bifrost.sources.tar.gz)
+
+Omkompilering av ntpd och ntpdate, då ntpdate hade en förmåga att
+segfault:a och ntpd bara dö. Fungerar nu bättre efter omkompilering
+(annan version av gcc än vad som användes tidigare för ntp-paketet).
+
+Ny upplaga av källkoden för specialprogrammen (bifrost.sources.atr.gz)
+släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-09-16</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta2</I>
+
+Vi behåller nuvarande version av Gated, som fungerar bra. Problemet med
+Router Discovery är inte så lätt att lösa i Gated, så det får vara...
+
+En extra PIM-daemon som bara kör i PIM Sparse Mode v1, pimd.v1-only
+upplagd under /sbin (bara tillfälligt tills v2 är OK).
+</PRE>
+
+<HR>
+
+<H3>1999-09-15</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta2</I>
+
+Nya versioner av Iproute2, tc och tcpdump.
+</PRE>
+
+<HR>
+
+<H3>1999-09-02</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta2</I>
+
+Försök med diald och "dial on demand" är på gång.
+
+Buggfixande av gated och problem med att hantera router discovery.
+
+Småändringar av filter-exempel.
+</PRE>
+
+<HR>
+
+<H3>1999-07-30</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta1</I>
+
+En del provkörningar avklarade. Version 3.0beta1 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-07-29</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta1</I>
+
+Kernel-modulerna flyttade från /sbin till /modules. Det blir lättare att
+hålla reda på dem på så sätt. Rc-script som använder insmod anpassade för
+att läsa modulerna från /modules.
+
+Filter-regler ändrade under /default/example3.
+
+Det finns vissa datorer (som inte följer rekommendationerna för Bifrost),
+som har problem att packa upp en bz-packad kärna. Däremot fungerar vanlig
+gzip:ad variant bra. Kärnan är dock lite för stor för detta, så vissa delar
+måste då lyftas ut som moduler. Den maskin som nu visat problem med bz,
+är en gammal Pentium-baserad Digital-PC. En specialkompilerad kärna, med
+bara det som behövdes och komprimerad med gzip, fixade problemet. Ska man
+kanske övergå till vanliga gzip:ade kärnor (enklare kod, men sämre
+komprimering) ?
+
+Kärnorna omkompilerade med SCSI, PPP och några andra delar utlyfta som
+moduler. Ändringar gjorda i rc-scripten så att man kan ladda in modulerna
+för SCSI och PPP (kan stängas av/på via chkconfig).
+
+Tester av den nya distributionen...
+</PRE>
+
+<HR>
+
+<H3>1999-07-27</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0beta1</I>
+
+Distributionen går från alpha till beta. Saker börjar stabilisera sig
+så pass och vi har många timmars körning med denna distribution bakom
+oss.
+
+Ändringar i diverse rc-script och configure för att underlätta snabb-
+installation av några förkonfigurerade maskiner (inom SLU). Det tar
+annars lite för lång tid och är svårt att för varje system komma ihåg
+alla ändringar som är specifika.
+
+Några variabelnamn i filer under /etc/options har bytt namn, för att
+bättre överensstämma med vad de faktiskt gör.
+
+Ett par extra echo-kommentarer vid uppstart för att undvika förvirring
+vad gäller om IP-forwarding är påslagen eller ej.
+</PRE>
+
+<HR>
+
+<H3>1999-07-24</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha8</I>
+
+Syslog för Apache kommer först i version 2.0 av densamma. Vi inväntar
+den officiella koden för det istället för att försöka fixa det själva.
+Felmeddelanden från servern själv kommer dock redan idag till syslog.
+
+Saker som återstår att titta närmare på: LDAP för autenticering via
+IP-login (Bifrost Nomad), samt tester och nya exempelscript för QoS
+och trafikstyrning med ip, tc m.fl.
+
+Några småfel i filrättigheter efter uppdateringar, rättade.
+
+Version 3.0alpha8 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-07-22</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha8</I>
+
+ipmasqadm är omkompilerad och har nu fått med sig de korrekta moduler
+som behövs (saknades tidigare), liggandes under /usr/lib/ipmasqadm.
+Dessutom ett exempel på användning i filen /etc/masq-adm.
+</PRE>
+
+<HR>
+
+<H3>1999-07-21</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha8</I>
+
+Skapande av filerna fwrules och fwrules.dbc har tagits bort från
+configure. De var ändå inte speciellt användbara eller ens korrekt
+skapade med hänsyn till den nya 2.2-kärnan.
+</PRE>
+
+<HR>
+
+<H3>1999-07-15</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha8</I>
+
+Ny version av Apache+SSL pga uppgraderad OpenSSL. Test-Certificatet
+för Bifrost Nomad också nyskapat, samt en smärre justering av
+konfigurationsfilen för httpsd. Källkoden som inkluderar Apache+SSL
+och OpenSSL är uppdaterad.
+
+Istället för att dra ur kabeln för att logga ur IP-login-tjänsten,
+kan man göra <B>ifconfig eth0 down</B> eller motsvarande. På Windows-
+maskiner är det lättast att göra en batchfil under C:\WINDOWS som
+innehåller:
+
+  ipconfig /release_all
+
+och kanske även en nyuppkopplingsfil med:
+
+  ipconfig /renew_all
+
+Dessa kan man ha länkar till på "skrivbordet" för snabb åtkomst.
+Notera att dessa batchfiler endast fungerar om man använder DHCP.
+Med statiska IP-nummer och andra tilldelningar finns det inget lätt
+sätt att tillfälligt stänga av ett interface.
+</PRE>
+
+<HR>
+
+<H3>1999-07-13</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha7</I>
+
+Små modifieringar av några filter-regler.
+
+Version 3.0alpha7 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-07-01</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha7</I>
+
+Uppdaterade exempelregler för brandväggsfilter.
+
+Ny upplaga av källkoden för specialhacken - närmare bestämt
+är det källkoden för IP-login som har ändrats.
+</PRE>
+
+<HR>
+
+<H3>1999-06-29</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha7</I>
+
+Nya binärer för IP-login (Bifrost Nomad).
+
+Modifiering av configure så att /etc/rc.d/rc.inet.routes inte
+skapas av configure, utan finns under /etc/rc.d från början.
+rc-scriptet är dessutom omgjort med några extra exempel på
+host-routes o.d.
+</PRE>
+
+<HR>
+
+<H3>1999-06-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha6</I>
+
+Justeringar av rc.interfaces, iflist och några andra
+konfigurationsfiler.
+
+Testkörning av 1-portars D-Link DFE-500TX, verkar fungera bra...
+
+Nya upplagor av specialhacks-källkoden och källkoden för kärnan.
+
+Version 3.0alpha6 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-06-17</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha6</I>
+
+Ny SSH - version 1.2.27.
+
+Ideer om hur scripten för respektive interface kan förbättras.
+Lyfta in spoof, forward och andra delar som vi ställer in i
+proc-filsystemet i respektive nic-fil. Dessutom kan eth0, eth1
+och andra interface-namn sättas via namnet på filen för att göra
+filerna mer generella.
+</PRE>
+
+<HR>
+
+<H3>1999-06-15</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha6</I>
+
+Ny version (1.3.9) av ipchains, samt tillhörande dokumentation.
+
+Smärre förändringar i Bifrost Nomad, vad gäller webbservern och
+IP-login-binärerna (mer loggning o.d.), samt modifiering av tacacs-
+klienten för att kunna använda DES-entry och våra vanliga servrar
+för autenticering. Ett på det hela taget fungerande system nu...
+</PRE>
+
+<HR>
+
+<H3>1999-06-04</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha3-5</I>
+
+Några täta versionsbyten i och med att många småsaker fixats och
+nya programversioner dykt upp. Det är en diger lista över vad som
+ändrats, men här är en förkortad variant:
+
+* Nya binärer: ping, ip, tc, pimd, ipmasqadm, rtmon, arping,
+  tracepath, rdisc, rtacct, clockdiff, whois, tcpdump, tulip-diag
+  och mii-diag.
+
+* Apache+OpenSSL för Bifrost Nomad (Netlogon-projekt), samt en del
+  andra småprogram som har med det projektet att göra.
+
+* Uppdaterade exempelfilter.
+
+* Många småändringar i olika script och nytillkomna script.
+
+* Nya kärnor med buggfixar och ny ATM-kod.
+
+* Omkompilerade moduler för masquerading.
+
+* Ny tulip-driver.
+
+* Nya distributioner av källkod för både 2.2.5-kärnan och
+  diverse annan programvara vi använder.
+
+Version 3.0alpha4 släppt och fyra dagar senare, version 3.0alpha5 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-04-29</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha3</I>
+
+Tagit bort modulen ip_masq_autofw i och med att man istället bör
+använda ip_masq_portfw.
+
+Lagt till verktyget ipmasqadm.
+
+Förbättringar gjorda i några fwrules-filer.
+</PRE>
+
+<HR>
+
+<H3>1999-04-20</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha2</I>
+
+3.0alpha1 övergår efter experimenterande till 3.0alpha2.
+
+Några extra exempel på användning av iproute2 adderade till
+rc.inet.routes (som sätts upp via configure). 4st '\' saknades
+i configure, vilket gjorde att rc.nic.eth* och rc.inet.routes
+blev trasiga m.a.p. valet av iproute2 eller ifconfig/route.
+
+Nykompilerade kärnor 2.2.5. med hårdlödd storlek på ramdisk;
+8MB respektive 64MB. ATM-koden för 2.2.1-kärnan inlyft i 2.2.5
+och tycks fungera bra. Kompileringskonfigurationen för kärnorna
+finns under /etc som vanligt.
+
+Nykompilerade moduler tillhörande kärnan:  /sbin/*.o
+
+Temperaturloggning via syslog finns (var 5:e minut) om man har
+lm78-modulen installerad. Ligger i daemoncheck.
+
+Inställning för minnesstorlek i /etc/lilo.conf bortplockad.
+
+Ny brandväggsregel (exempel) för MetaFrame och ICA-protokollet
+(används för Agresso).
+
+Raden:    echo '256 512 2048' > /proc/sys/vm/freepages
+adderad till rc.M.
+
+snmpd.conf ändrad så att mätvärdena blir korrekt för både
+10Mb/s och 100Mb/s Ethernet. Kommentarstecken måste dock
+ändras för hand.
+
+Ett test-script för syslog:  syslog-flood
+
+Version 3.0alpha2 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-04-15</H3>
+<PRE>
+<B>Tom:</B>
+<I>v3.0alpha1</I>
+
+Vi övergår nu till att släppa täta alpha-releaser av den kommande
+&quot;slutgiltiga&quot; distributionen. Dessa är just vad det låter
+som (otestade), men inte nödvändigtvis sämre (bara att vi inte säkert
+vet).
+
+Ett par '\' bortplockade från rc.inet, som kommit dit av misstag
+mellan version 2.1 och 2.1a.
+
+dhcp-restart är ett script för att snabbt och enkelt starta om
+dhcpd efter att ny dhcpd.conf-fil har lagts in.
+
+Vi testar just nu 2.2.5-kärnan med i stort sett samma konfiguration
+som 2.1.126 hade. ATM-koden saknas dock ännu.
+
+Ett litet fel i rc.dhcp åtgärdat. Inget som påverkat driften - det
+har bara sett aningen konstigt ut (dubblering av parametrar).
+
+Börjat titta på ATM-koden för 2.2.1, om den går att lägga in i 2.2.5.
+</PRE>
+
+<HR>
+
+<H3>1999-04-09</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1a</I>
+
+Småändringar av textmeddelanden och patch-beskrivningar.
+Testkörning av patch, samt full release för att se att det
+är OK - går nu mycket snabbare att få igång maskinerna med
+korrekt konfiguration (i alla fall om man inte använder
+gated, som ju kräver särskild behandling).
+
+De problem som uppstått med gated när man kört med full
+Internet-routing och som låst routingen, kan nog få en lösning
+(Robert har ideer om vad som gått snett och ska göra test för
+att verifiera).
+
+Version 2.1a släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-04-07</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1a</I>
+
+Flyttat upprättandet av filterregler till alldeles <B>före</B>
+initieringen av nätverkskorten. Test har visat att det fanns ett
+kort gap på någon millisekund tidigare där nätet var konfigurerat,
+men eventuella filterregler inte hade satts i kraft. Filterreglerna
+kan sättas upp innan nätverkskorten har konfigurerats, så det var
+bara att flytta inläsandet av /filter/fwrules ett snäpp uppåt
+i rc.inet.
+
+Några justeringar gjorda i rc-script (stavfel o.d.) i samband med
+testkörning av senaste patchen för v2.1a.
+
+Uppgraderade syslogd och klogd.
+</PRE>
+
+<HR>
+
+<H3>1999-04-06</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1a</I>
+
+Många småfixar i configure för att flytta över konfigurationen till
+den nya strukturen med /etc/config och /etc/options. Dessutom en ren
+bugg som upptäcktes.
+
+Optionen:
+
+  append = &quot;mem=256M&quot;
+
+adderad till /etc/lilo.conf för att man ska kunna sätta hur mycket
+minne man har (nödvändigt om mer än 64MB och BIOS inte kan tala om
+mängden minne på korrekt sätt). De maskiner som kör som Internet-
+routrar bör använda 256MB minne.
+
+Fler optioner och flaggor adderade till options och config och
+flera rc-script omskrivna. rc.inet skapas t.ex. inte längre av
+configure, utan finns redan med från början i distributionen.
+</PRE>
+
+<HR>
+
+<H3>1999-03-31</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1a</I>
+
+Två nya directoryn skapade som innehåller konfigurationsfiler:
+
+/etc/config   = av/på-flaggor för script, demoner o.d.
+/etc/options  = parametrar till script och program.
+
+Tillsammans med dessa har det tillkommit modifikationer på configure
+och två nya program (eg. script) <B>chkconfig</B> och <B>setrouter</B>.
+Det förra av dem kollar och sätter konfigurationen av vilka demoner
+och script som dras igång vid boot. Det sistnämnda programmet sätter
+konfigurationen till en ren router med gated eller till en brandvägg
+(olika storlek på RAM-disk, olika kärnor m.m.). Tanken är att det bli
+lättare att snabbt konfigurera om en maskin till en viss uppgift och
+att hålla koll på sina ändringar (och minska på antalet ställen där
+ändringar måste göras).
+
+Modifikationer på några exempel-brandväggsregler.
+</PRE>
+
+<HR>
+
+<H3>1999-03-30</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1a</I>
+
+tulip.o är den "vanliga" tulip-drivern och tulip.planet.o är den
+som är fixad för att kunna låsa PLANET-korten. Den innehåller
+lite småfula saker och bör kanske inte köras om man har andra kort.
+Vi väntar med spänning på nästa version av tulip-drivern som ska
+ordna detta mer permanent.
+
+Wu-ftpd är utbytt mot 2.4.2 VR16 som ska vara "säker".
+Ftp bör inte användas mot Bifrost-burkarna av säkerhetsskäl, men
+det är ändå lika bra att ha en bättre version av den ftp-demon som
+ändå redan finns där.
+
+Distributionen av källkodsfiler är uppdaterad.
+</PRE>
+
+<HR>
+
+<H3>1999-03-25</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1a</I>
+
+Det kommer en ny patch för gated.
+
+En ny bugg i kärnor 2.1.85 och fram till 2.2.3 är känsliga för
+en fragmenteringsbugg vilket stänger av all IP-trafik om man utsätter
+för en viss attack (attackprogram finns). Vi har patchat upp vår
+distribution av 2.1.126 och lagt upp nya kärnor.
+
+En smärre fix för PLANET-korten (med tulip-chip 21143) finns nu
+i tulip-drivern i väntan på v0.91 av drivrutinen. Det går nu att
+låsa till t.ex. full duplex och kortet behåller den inställningen,
+vilket tidigare inte gick med PLANET-korten.
+</PRE>
+
+<HR>
+
+<H3>1999-03-21</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1</I>
+
+MD5-summor skapade för v2.1, samt patch- och distributionsfil.
+
+Version 2.1 släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-03-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1</I>
+
+En ny configure som lägger till netmask i både lång och kort variant
+i rc-scripten. Lång variant behövs för ifconfig och kort för ip.
+Näverksadressen behövs för ip om man ska lägga till routes. Dessa
+räknas ut m.h.a. IP-nummer och nätmask.
+
+Testning av patchen och dess innehåll för att snart kunna släppa den
+inför SUNET-uppgraderingen med Bifrost-burkar.
+
+Några smärre modifieringar i exempelreglerna för anpassning till hur
+det ser ut på de faktiska systemen som är i drift. rc.nic.atm0 har
+gjorts om för att mer likna de script som genereras av configure.
+</PRE>
+
+<HR>
+
+<H3>1999-03-13</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.1</I>
+
+Fixat med ny syntax för Iproute2 (ip) så att ATM-scriptet rc.nic.atm0
+ska fungera. Det finns numera som ett exempelscript under /etc/rc.d.
+Modifierat configure så att rc.nic.atm0 finns med bortkommenterat i
+rc.inet.
+
+Ett script för att göra enkla total-backuper av t.ex. våra Bifrost
+SUNET-routrar och därmed kunna duplicera till en exakt kopia. Scriptet
+heter /sbin/backup.total och sparar till en komprimerad fil under
+/tmp/total.bak.tar.gz.
+</PRE>
+
+<HR>
+
+<H3>1999-03-11</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0i - v2.1</I>
+
+Nya script för att skapa patchar och göra listningar över modifierade
+filer finns med i bifrost-sources.tar.gz, samt ny källkod för lm78,
+traceroute, ipchains-1.3.8, tar-1.12 (med -U option) och pcmcia-device.
+
+Patchen mellan v2.0h och v2.1 blir en verklig jumbo-patch med många
+uppdaterade binärer, script, devices och annat. För många för att
+räknas upp här. Lista över filer som finns med i patchen, distribueras
+tillsammans med densamma som en text-fil.
+
+Saker är på gång med framförallt gated och tulip-drivern och ny patch
+lär dyka upp när dessa är bättre testade och saker har börjat stabilisera
+sig. Mycket av arbetet har att göra med uppgraderingen av SUNET (berör
+gated) och att det nu går att få tag på nya tulip-chip (21143).
+</PRE>
+
+<HR>
+
+<H3>1999-03-05</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0i</I>
+
+<B>logger</B> adderad för att kunna skriva egna meddelanden till syslog.
+
+Nya ttyp* och ptyp* (var fel major/minor-nummer på dem) och i samband
+med detta gått igenom och ändrat på en del filrättigheter på dev-filer.
+
+Tagit bort gated ur /usr/sbin/daemoncheck och ersatt med följande
+mekanism för demoner som eventuellt kan dö och som måste hållas igång:
+
+#!/bin/sh
+while true ; do 
+  gated -N
+  echo -n "gated restarted at "
+  date
+  logger WARNING gated restarted 
+  sleep 2
+done
+
+Lagt till en exempelfil för tcp-wrappern (/etc/hosts.allow) och gjort
+en smärre justering i inetd.conf.
+
+Kompilerat en ny tulip-driver som ska klara av 21143-chip:et som det
+nu finns en del kort med (bl.a. ett 4-portars TP-kort D-Link DFE-570TX).
+Några smådetaljer återstår att fixa i drivern.
+</PRE>
+
+<HR>
+
+<H3>1999-02-23</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0i</I>
+
+Kompilerat upp två nya kärnor (fw och rtr) där stöd för SCSI-kort
+av typen NCR810 och NCR875 finns med. Lokala loggdiskar om sådana
+används bör köra med dessa SCSI-kort för god stabilitet. SCSI är
+att föredra vid hög trafik framför EIDE i och med att man då håller
+CPU-lasten nere.
+</PRE>
+
+<HR>
+
+<H3>1999-02-19</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0i</I>
+
+Utprovning av FWTKs ftp-gw för att försöka ordna med en säkrare öppning
+för ftp och även göra det möjligt att köra ftp mellan två nät där ftp
+filtreras. Ftp tillhör ett av de protokoll som man annars helst vill
+slippa p.g.a. dess konstruktion och de portar som används, såvida man
+inte har tillgång till dynamiska filter.
+
+Ändringar av en del detaljer i exempelfilter-regler.
+
+Filterreglerna dras nu igång i den ordning som verkar vara lämpligast ur
+lasthänseende. Jag har tagit en titt på den trafik som passerat reglerna
+under en dryg vecka och därefter sorterat dem i ordning med de mest
+använda högst upp i listan. Detta bör förbättra prestanda med någon enstaka
+procent.
+</PRE>
+
+<HR>
+
+<H3>1999-02-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0i</I>
+
+fwrules-filerna som skapas av configure ska vara skrivbara för att man
+ska kunna skriva över dem via scp. chmod 0500 i configure därför utbytt
+mot chmod 0700.
+
+Bifrost testat på en bärbar Toshiba med PCMCIA-nätverkskort. En tar-fil
+med nödvändiga tillägg ska skapas för den som vill ha en
+Bifrost-distribution som verktyg på en bärbar PC.
+
+Vi har testat Router Discovery (med gated och rdisc) med gott resultat.
+Gated på Bifrost-burken och rdisc på en host på det bakomliggande nätet.
+</PRE>
+
+<HR>
+
+<H3>1999-02-11</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0i</I>
+
+En del av de nätrelaterade programmen är kompilerade med den resolver
+som finns i libc och använder /etc/host.conf för att bestämma i vilken
+ordning namnuppslagning ska ske. Ping, gated m.fl. använder dock ett
+resolv-bibliotek från bind 4.9 vilket är bättre, men använder då tyvärr
+inte /etc/host.conf. Vi måste ta en titt på detta och se efter så att
+alla program använder samma resolver.
+</PRE>
+
+<HR>
+
+<H3>1999-02-04</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0h</I>
+
+Version 2.0h släppt.
+
+Ett nytt litet script <B>iflist</B> visar interfacen, samt deras
+beskrivning. iflist utan parametrar visar alla interface, medans
+t.ex. <B>iflist eth0 lo</B> visar eth0 och lo.
+
+Backup och restore har skrivits om en aning, för att bl.a.
+komprimera backupfiler.
+
+Ett exempel på hur man använder subinterface (för "virtuella"
+IP-nummer) finns i /etc/rc.d/README.
+
+rc.nic.dummy skapas av configure, dock bortkommenterad i rc.inet för
+att inte per default dras igång vid boot.
+
+Modifierat scriptet för att leta efter uppdaterade filer i
+distributionen (används t.ex. vid skapandet av patcher):
+
+<TT>
+#!/bin/sh
+#
+# Find all changed files to be able to make proper patches.
+#
+# Tom Johans 1999-02-04
+#
+
+if [ ${1:-none} = "none" ]; then
+    cat&lt;&lt;EOF
+
+  Usage: find.changed.files &lt;no. of days&gt; &gt; filelist.txt
+
+  Example: find.changed.files 5 &gt; filelist.txt
+
+EOF
+    exit
+fi
+
+I=0
+while [ $I != $1 ]; do
+    find . -xdev -ctime $I -type f -exec ls -alF \{\} \;
+    find . -xdev -ctime $I -type l -exec ls -alF \{\} \;
+    find . -xdev -ctime $I -type b -exec ls -alF \{\} \;
+    find . -xdev -ctime $I -type c -exec ls -alF \{\} \;
+    I=`let CALC=$I+1;echo $CALC`
+done
+</TT>
+</PRE>
+
+<HR>
+
+<H3>1999-02-03</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0h</I>
+
+Skrivit om stora delar av <B>configure</B> för att modularisera initieringen
+av varje interface och olika routes o.d., samt lagt till en beskrivning av
+varje interface och snyggat upp i scriptet en del (minskat storleken med 1/3).
+
+Bytt ut <B>more</B> mot <B>less</B> och lagt upp en länk från more som pekar
+till less. I samband med detta behövdes libcurses också installeras.
+
+Filrättigheter ändrade på lib-filer under /lib (chmod a-x /lib/lib*).
+</PRE>
+
+<HR>
+
+<H3>1999-01-26</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0g</I>
+
+Ändrat på några filrättigheter på exempelfilter som blev fel i den
+tidigare uppgraderingen.
+
+Lagt till /var/tmp som directory på RAM-disken (för gated).
+
+Tagit bort mount-kommandot sist i rc.local och ersatt med remount.
+
+Ändrat en label i lilo.conf som var för lång.
+
+Fixat till ett fel i configure som uppstod vid senaste uppgraderingen.
+En 'EOF' och en 'fi' som saknades.
+
+Några småändringar på några exempelfiler för filter.
+
+Lagt till en ren routerkärna under /boot (saknar "IP always defrag"
+och har stöd för "large routing tables"), samt konfigurationsfilen
+för kärnan (/etc/kernel.config.2.1.126rtr).
+
+Ändrat i inittab så att 4 st virtuella konsoler kan användas
+istället för endast 2 st (startar nu 4 st agetty).
+
+Från den speciella routing-patchen som Robert har lagt upp (för teständamål
+endast), har nu de senaste versionerna av <B>tc</B>, <B>ip</B> och <B>rtmon</B>
+lyfts över.
+
+Tagit MD5 <A HREF="md5-v20g.txt">checksummor</A> på alla vanliga filer i systemet.
+
+Script för att skapa MD5 checksummor:
+<TT>
+----------------------------------------------
+#!/bin/sh
+#
+# MD5 checksums on all regular files (but not on directories).
+#
+find . -xdev -type f -exec md5sum \{\} \;
+----------------------------------------------
+</TT>
+
+Script för att hitta nya uppdaterade filer (för patcher):
+<TT>
+----------------------------------------------
+#!/bin/sh
+#
+# Find all changed files to be able to make proper patches.
+# Usage: find.changed.files 0 1 2 3 4 5 &gt; filelist.txt
+#
+for i in $@; do
+  find . -xdev -ctime $i -type f -exec ls -alF \{\} \;
+done
+----------------------------------------------
+</TT>
+
+Släppt version 2.0g.
+</PRE>
+
+<HR>
+
+<H3>1999-01-14</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0f</I>
+
+Några nya binärer, samt ny version av en gammal: <B>tracepath</B>,
+<B>arping</B>, <B>rdisc</B> och <B>ping</B>.
+
+Version 2.0f släppt.
+</PRE>
+
+<HR>
+
+<H3>1999-01-13</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0f</I>
+
+Packat ihop uppgraderingarna från v2.0e till 2.0f till en patch för att
+underlätta byte av versioner. Uppgraderingar kan i de flesta fall ske utan
+att påverka funktionen hos systemet mer än temporärt (ombootning krävs t.ex.
+i stort sett bara om kärnan bytts ut)
+</PRE>
+
+<HR>
+
+<H3>1999-01-12</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0f</I>
+
+Ett script körs av cron var femte minut för att kolla att gated, syslogd och
+sshd är igång. Cron startas alltså per default vid boot och kör scriptet
+<B>/usr/sbin/daemoncheck</B>. Till en början kollar vi bara att processerna
+finns. Förhoppningen är att hitta en smidig lösning på att se om de också
+verkligen lever och inte har hängt sig. Vi får fundera över det en stund...
+
+Uppdaterat <B>configure</B> så att man kan konfigurera endast ett nätverks-
+kort (för att köra som en host), utan att det förstör de övriga
+inställningarna. Default-filter-reglerna konfigureras ej om bara ett
+nätverkskort riggats upp.
+</PRE>
+
+<HR>
+
+<H3>1999-01-11</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0f</I>
+
+Omkompilering av <B>cron</B> så att felmeddelanden inte går via /bin/mail
+eller /usr/lib/sendmail (som inte finns), utan istället via
+/usr/sbin/cronmail. <B>Cronmail</B> är ett enkelt script som skriver ner
+brevet till en fil under /tmp för att underlätta felsökning när man mekar
+med cron. I och med att vi inte har program i distributionen för att
+skicka brev, så är detta ett bättre sätt att få reda på vad som gick fel
+med cron-jobbet (dessutom slipper vi att felen skickas via nätet i klartext
+eller lokalt hamnar i en spool-area som då måste riggas upp). Bra eller
+dåligt ?  Tja, det fungerar för mig...
+Notera att raderna i /usr/sbin/cronmail är bortkommenterade per default,
+för att undvika att /tmp fylls av onödiga filer vid normala cron-jobb.
+
+/etc/crontabs/root är fixad så att Argus ska fungera OK. Ett entry i filen
+var fel sedan en tidigare version av cron.
+</PRE>
+
+<HR>
+
+<H3>1999-01-08</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0f</I>
+
+Bytt ut <B>bc</B> som visade sig vara kompilerad med fel bibliotek.
+</PRE>
+
+<HR>
+
+<H3>1998-12-29</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0f</I>
+
+Ny patchning av DHCP (samma version och patchlevel, men specialfixar
+från Alexey K.).
+
+En till uppsättning exempelregler under /default/example3 för ett litet
+privat studentnät med masquerading och restriktioner på även utgående
+trafik (s.k. kakelugn).
+
+Nya versioner av syslogd och klogd. Adderat wc.
+
+ASUS P5A har problem att hantera hög belastning av nättrafik. P2B är där
+överlägsen (liksom TX97 som tyvärr utgått ur sortimentet). Funderingar på
+att testa Celeron 266 eller 300 och klocka upp dem rejält, stupar på att
+det nu är svårt att få tag på dessa. Det finns bara 300A och 333 att köpa
+och de innehåller en L2 cache vilket gör dem mindre intressanta ur
+överklockningshänseende. Dessutom kommer hårdvaruspärrar att finnas i alla
+cpu:er som gör att de har en fast multiplikator och bara kan köra på exakt
+rätt busshastighet [trist].
+</PRE>
+
+<HR>
+
+<H3>1998-12-15</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0f</I>
+
+Ändringar av vissa exempelfiler för filtrering. Bytt SNMP-lösenordet
+(community) från "public" till ett annat (se snmp.conf i distributionen).
+
+P5A har testkörts i labb, men med några oroväckande resultat när paket-
+pistolen skjuter lite för hårt...  ska undersökas närmare. Routingen är
+enligt Robert trasig i gated (upptäcktes i och med en maskin som kör skarp
+med gated).
+
+Wc bör adderas för att kunna räkna t.ex. antalet routes om det är för
+många för att räkna manuellt (ip r|wc -l).
+</PRE>
+
+<HR>
+
+<H3>1998-12-08</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0e</I>
+
+En Mitsubishi 30MB flashdisk har testats med Adtron-läsaren och både
+ASUS P2B och ASUS P5A och fungerar bra.
+
+/etc/localtime bortplockad och ersatt av en ny /usr/lib/zoneinfo/localtime
+som fungerar enligt nu gällande tidszon-regler för Sverige. Genom att
+lägga in en egen tidszon-fil under samma namn, kan man ställa om systemet
+för andra tidszoner. BIOS-klockan ska ställas in enligt GMT.
+
+Några README-filer skapade.
+
+Omkompilerad lock och adderat ny version av libdl.so.
+
+Den kärna vi nu använder är kompilerad med optionen "always defrag" vilket
+behövs om man kör som brandvägg och framförallt om masquerading används.
+Vill man köra med en ren router och kanske även använda olika typer av
+interface (ATM, FDDI o.d.), är det bättre att kompilera om kärnan med
+optionen bortmarkerad för att få bättre routing-prestanda (CPU:n
+tillbringar annars mycket tid med att sätta ihop fragmenterade paket innan
+de på nytt skickas vidare).
+
+Distributionen v2.0e samt källkod för kärnan och några egna program, är
+upplagda på plats.
+
+Version 2.0e släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-12-03</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0e</I>
+
+Modifiering av rc.S för att fixa rättigheterna på /tmp så att även filter-
+användaren kan använda <B>vi</B>. ipchains har fått en suid-root bit som
+saknades, samt att crontab nu kan köras av filter. Detta tillsammans gör
+att filter-användaren kan köra cron-jobb för att växla filter-regler.
+
+ATM testast med 2.1.126 och verkar fungera bra (två moduler laddas
+från rc.M).
+
+22.5 MB Mitsubishi-diskarna fungerar inte!!  Däremot har vi nu testat en
+15 MB disk av samma märke - fast annan revision - som går bra. Vi behöver
+nu bara kolla att det finns och få tag på större diskar med den nyare
+revisionen. 30 MB från SanDisk har vi fortfarande ingen bra lösning på för
+ASUS P2B + Adtron, så vi tror mer på Mitsubishi...
+
+Vi testade en annan CardPORT-läsare än vad vi tidigare använt, men som hade
+två IDE-interface och utan byglingar - fungerar inte!! så undvik den.
+Får vi de nya flashdiskarna att gå bra, så är det nog bättre att hålla sig
+till Adtron-läsaren (och den andra "riktiga" typen av CardPORT för
+utvecklings-maskiner där diskarna byts fram och tillbaka).
+
+Releasen v2.0e är nästan klar nu - några småsaker återstår att testa och
+tillföra.
+</PRE>
+
+<HR>
+
+<H3>1998-12-01</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0e</I>
+
+2.1.126 har nu stöd för både FDDI (hårdlödd i kärnan) och ATM (som modul).
+Nya moduler för bl.a. masquerading kompilerade i samband med uppgraderingen
+av kärnan och ligger som alla andra moduler under /sbin. 2.1.126 ska
+testköras i just denna konfiguration innan vi släpper den (körs med enbart
+Ethernet och FDDI i skarp drift, men ATM behöver testas).
+
+Modifieringar av filrättigheter för filter-exempel.
+
+Några förklarande README-filer skapade i vissa directoryn.
+
+Crontab anpassad så att även filter-användaren kan använda tidsbaserade
+script för att styra trafiken (var tidigare bara körbart för root).
+
+Exempelfil (cron.fwrules.selene) med filter-regler som stängs av/slås på av
+cron. Ligger under /default/example2. Namnet på filen kommer sig av att
+den används för att öppna trafik till en maskin som heter Selene i två timmar
+varje lördag för att kunna köra NetMeeting, som tyvärr inte går att
+filtrera på ett snyggt sätt (dålig konstruktion av protokollen).
+
+Nya flashdiskar på 22.5 MB från Mitsubishi ska testas med Adtron-läsaren
+och ASUS P2B moderkort för att se om de fungerar bättre än vad SanDisk 30 MB
+gör (moderkortet hittar ibland inte 30 MB diskarna, pga någon form av timing-
+problem)...    [lite senare] Nu testade och fungerar inte bra med P2B och
+Adtron (sitter rakt på IDE-bussen), men däremot på ett äldre ASUS-kort med
+CardPORT-läsare - ska undersöka saken vidare.
+
+Installerat ld.so.1.9.9, ld-linux.so.1.9.9 och libc-5.4.46 under /lib.
+</PRE>
+
+<HR>
+
+<H3>1998-11-26</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0e</I>
+
+Nu finns <B>bc</B> inkluderad i distributionen.
+
+2.1.126-kärnan har inte något stöd för ATM (koden ej portad till denna
+version), men vi ska testa om det inte går att lyfta ATM-koden rakt av
+från 2.1.105...
+
+En del ändringar av vad som är aktiverat i kärnan har skett. Notera att
+<B>Always Defrag</B> är påslaget, vilket är viktigt om man kör maskinen
+som brandvägg eller i ännu högre grad om masquerading används. Däremot
+bör man inte använda det om burken körs som vanlig router eller t.ex.
+använder FDDI, då maskinen får jobba benen av sig med att sätta ihop
+paket (olika MTU:er ställer till det).
+
+Tulip-drivern som modul för att lättare kunna hårdlöda den med olika
+parametrar för full duplex o.d. (kan behövas om förhandlingen inte
+lyckas). FDDI och ATM går däremot inte att lägga som moduler och är
+hårt kompilerade för följande nätverkskort; FDDI = Digital DEFEA/DEFPA
+och ATM = ENI155P. Vi använder själva ATm och FDDI i några skarpa
+installationer, men den som inte behöver detta kan ju alltid kompilera
+om kärnan med dessa borttagna.
+</PRE>
+
+<HR>
+
+<H3>1998-11-24</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0e</I>
+
+Version v2.0d finns som arbetsversion och i full drift på ett centralt
+ställe i vårt nät, men tack vare en del problem som upptäcktes då en ny
+kärna testades kommer nästa release att bli v2.0e (pga alla ytterligare
+ändringar som tillkommer innan vi släpper ut något).
+
+Problemet med remount fixat genom nya ld.so och ld-linux (löste nog
+några andra saker också).
+
+Ny kärna: 2.1.126 samt tulip 0.90 (med /proc/net/tulip).
+
+Ny SNMP.
+
+Några nya modifierade exempelregler under /default.
+
+Ett par nya rc-script med exempel på QoS.
+
+<B>lsof</B> finns nu för att kunna se vilka öppna filer som finns
+på systemet (bra för debugging bl.a.).
+</PRE>
+
+<HR>
+
+<H3>1998-11-19</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0d</I>
+
+Tester med 2.1.126-kärnan, men något konstigt fel uppstår då mount ska
+montera om root-partitionen i "read only". Ett nytt lock-program för att
+låsa terminalen/konsolen, som använder shadow-lösenordet och dessutom
+tillåter root att låsa upp om så behövs.
+
+Intel lär ha köpt Tulip-chipet och ska börja använda det i sin produktion:
+<A HREF="http://developer.intel.com/design/network/index.htm">http://developer.intel.com/design/network/index.htm</A>. Det verkar ju i alla
+fall lovande...
+</PRE>
+
+<HR>
+
+<H3>1998-11-17</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0d</I>
+
+Nya versioner av binärerna <B>tc</B>, <B>ip</B> och <B>ping</B>, samt en
+som tidigare inte ingått - <B>rtmon</B>.
+
+Fullskaliga tester med en server (WWW, Samba, NIS m.m.) på ett DMZ, proxy-arp
+och en host-route, körs nu på institutionen för kemi (SLU) med gott resultat.
+Brandväggen som tillhandahåller nätkontakten för DMZ, det inre nätet och ut
+mot routern, kör v2.0c av Bifrost och i stort sett den regeluppsättning som
+i distributionen ligger under /default/example2.
+
+Robert testar nya versioner av tulip-drivern, 2.1.126-kärnan och FDDI-kort
+(sämre prestanda på FDDI-korten än vad vi får på tulip-korten).
+</PRE>
+
+<HR>
+
+<H3>1998-11-05</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0c</I>
+
+Det har visat sig vara strul med kombinationen ASUS P2B + Adtron-läsaren
++ 30MB flashdisk. BIOS:et klarar inte alltid av att identifiera disken,
+vilket gör att systemet inte bootar. CardPort-läsaren fungerar däremot bra
+och likaså om man använder den äldre 20MB-disken. Vi undersöker vad som kan
+vara fel (antagligen timing-problem).
+
+Nätverkskort med Tulip-chipet blir allt ovanligare beroende på köpet av
+Digital och att Compaq då gjorde sig av med licenserna för att tillverka
+Tulip-chipet. Andra ersättningskort visar sig vara mycket sämre m.a.p.
+prestanda.
+
+Tillägg har gjorts i configure, så att rc.inet skapas med deaktivering av
+source routing och möjlighet att slå på proxy-arp. Dessutom har sshd fått
+en inställning så att inloggningar som ligger idle, loggas av automatiskt
+efter 1 timme.
+
+En ny dhcpd - samma version, men en senare patch level.
+
+Nya exempelregler har lagts upp i /default. Ett subdirectory innehåller
+en konfiguration som sitter på en av våra labbmaskiner och ett annat
+har den konfiguration som används i drift på ett institutionsnät med
+en mängd blandade maskiner. Det kan vara en god ide att ta sig en titt
+på dessa vid konfiguration av egna filterregler för att i möjligaste mån
+undvika obehagliga överraskningar och oväntade stopp i trafiken.
+
+Version 2.0c släppt tillsammans med nytt källkodsträd för 2.1.105-kärnan.
+</PRE>
+
+<HR>
+
+<H3>1998-10-27</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0c</I>
+
+Några rader bortplockade i rc.dhcpd i och med att dhcpd i kombination
+med 2.1-kärnan inte behöver dem. Ytterligare några nya exempel-regler
+inlagda. En gammal kvarbliven fil från tidiga experiment bortplockad
+från /etc.
+
+Version 2.0c ska testas i skarp drift på Institutionen för Kemi (SLU)
+med en helt ny uppsättning filter-regler.
+
+Distributionen nu snart uppe i 20MB vilket gör att 30MB-diskarna är
+att rekommendera för att slippa städa bort delar som man inte vill
+använda.
+
+Moderkortet ASUS TX-97X är nu i det närmaste omöjligt att få tag i,
+då det är på väg ut ur sortimentet. ASUS P5A <B>kan</B> vara ett alternativ
+(som vi dock ännu ej själva testat). Det använder ALi (Aladdin) chip set
+och ska enligt referenser i News fungera bra med Linux.
+</PRE>
+
+<HR>
+
+<H3>1998-10-20</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0c</I>
+
+I configure har en rad adderats för att skapa rc.inet med följande:
+
+  echo 1 > /proc/sys/net/ipv4/tcp_syncookies
+
+vilket aktiverar skyddet mot SYN-flooding.
+
+Nya exempelregler skapade med bl.a. rena loggnings/statistik-regler.
+</PRE>
+
+<HR>
+
+<H3>1998-10-15</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0b</I>
+
+Förbättringar har gjorts av /sbin/configure för att förtydliga några
+saker, tagit bort inmatning av nätverksadressen (vilket inte explicit
+behövs längre) och snyggat upp ett par detaljer.
+
+Kärnan omkompilerad med stöd för dummy-interface för att ha något att
+testa att sätta upp routes mot.
+
+I /etc/inetd.conf är nu telnet och ftp bortkommenterade, vilket gör
+att de även efter start av inetd inte aktiveras utan att man manuellt
+ändrar i inetd.conf.
+
+Version 2.0b släppt i form av en patch för 2.0a.
+</PRE>
+
+<HR>
+
+<H3>1998-10-09</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0a</I>
+
+Testat 2.0a i skarp drift.
+
+Version 2.0a släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-10-02</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0a</I>
+
+Småändringar i configure rörande filrättigheter på rc.inet.
+Modifiering av /etc/crontab och relaterade script m.m. Omkompilering
+av cron och crontab då det visade sig finnas några felaktiga path:er
+i de tidigare varianterna. Verkar nu gå vägen, men ska testas i några
+dygn först.
+
+Robert testar en gated som är anpassad för 2.1-kärnan för att se om
+den fungerar som tänkt.
+
+Ett föreläsningsmaterial har skrivits ihop om <A HREF="http://robur.slu.se/papers/bifrost-intro.html">Bifrost-projektet</A>.
+</PRE>
+
+<HR>
+
+<H3>1998-09-25</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0a</I>
+
+Arbetat med cron för att få stil på log-skiftningen och omstarten
+av Argus (kan inte skriva till filer som skiftas på vanligt sätt).
+</PRE>
+
+<HR>
+
+<H3>1998-09-17</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0a</I>
+
+<B>Cron</B> och <B>crontab</B> installerade, samt kopiering i rc.S
+från /usr/cron till /var/spool/cron (ligger normalt i ramdisk).
+Argus 1.7 installerad som loggningsverktyg och använder <B>cron</B>
+tillsammans med <B>newarguslog</B> för att skifta logfilen en gång per
+dygn. Argus aktiveras från rc.M genom rc.argus. Relaterade verktyg
+för Argus är: <B>argus</B>, <B>ra</B>, <B>raservices</B>, <B>raconnections</B>, <B>raadjacency</B>
+och <B>rasort</B>.
+</PRE>
+
+<HR>
+
+<H3>1998-09-15</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0a</I>
+
+Den nya telnet-binären visade sig inte fungera. Antagligen något
+problem med lib-filer (?). Därmed är den nu ersatt med en fungerande.
+/etc/profile omändrad en aning.
+</PRE>
+
+<HR>
+
+<H3>1998-09-04</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0</I>
+
+Många småändringar har gjorts i rc-script och i /sbin/configure för
+att få fason på v2.0. Testdistributionen har provkörts i liten skala,
+men bygger till stor del på sådant som använts ett bra tag nu i våra
+testriggar. Configure har ändrats så att man nu ska kunna ha upp till
+16 st TP-portar (om man kör med ZNYX-korten) och de grundläggande
+brandväggsreglerna har gjorts om med <B>ipchains</B>. Spoofing-reglerna
+är dock borttagna och <B>source address verification</B> är i stället
+påslaget i kärnan, vilket är mer generellt och automatiskt fungerar för
+nya interface.
+
+En testdistribution är släppt i form av v2.0 och kan användas för dem
+som själva vill labba. Den bör vara tillräckligt stabil för att kunna
+köras skarpt, men inget garanteras (fast vi ger aldrig garantier
+ändå, så :-).
+</PRE>
+
+<HR>
+
+<H3>1998-09-03</H3>
+<PRE>
+<B>Tom:</B>
+<I>v2.0</I>
+
+Arbetet har nu gått över till att jobba på en 2.1-kärna och nya
+program för framförallt routing, brandväggsfilter, trafikflöden o.d.
+Diverse program har därmed ändrats eller adderats eller tagits bort
+för att fungera med 2.1-kärnan.
+
+Masquerade-moduler för ftp, Quake, Real Audio osv har lagts in under
+/sbin.
+</PRE>
+
+<HR>
+
+<H3>1998-08-20</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.3b</I>
+
+Adderat stöd för NLS codepage 850 och NLS ISO8859-1. Två kärnor
+beroende på om man kör mjukvaru-watchdog eller hårdvaru-varianten
+(Berkshire). Default är den som stöder mjukvaru-varianten. 2.0-kärnan
+klarar nämligen inte att ha mjukvaru-varianten aktiverad när man kör
+med Berkshire (maskinen startar om). Ändring i rc.local så att rätt
+typ av watchdog startas automatiskt.
+
+Version 1.3b släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-07-24</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.3b</I>
+
+Fortsatt arbete på manualen, vilken också har anpassats till de
+förändringar som skett sedan senast.
+
+Upprensning i Tulip-drivern. Ny kärna (2.0.35) som är bättre än
+2.0.34 (vilken bara var en snabbfix för ett akut problem). Ny SSH
+(1.2.26) med några små inte så allvarliga fixar, samt omändringar
+av /etc/sshd_config (ligger inbakad i configure), /etc/ssh_config
+och flyttat på ssh_random_seed till /tmp. Ny telnet. Flyttat på några
+rader i .bash_profile. Ändrat på rättigheterna på .inputrc och /README.
+Adderat ett program <B>watchdog</B> som ska sköta hårdvaru-vakthunden
+(Berkshire). Gjort nödvändiga ändringar i några rc-filer i samband
+med detta.
+</PRE>
+
+<HR>
+
+<H3>1998-07-22</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.3a</I>
+
+En patch släppt för att uppgradera från v1.3 till v1.3a. Finns att
+hämta på distributionssidan.
+
+Version 1.3a släppt i form av en patch.
+</PRE>
+
+<HR>
+
+<H3>1998-07-04</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.3a</I>
+
+Ett nytt program för att låsa konsolen eller terminalen: <B>lock</B>
+Än så länge måste man själv mata in det lösenord som man vill låsa
+med.
+
+Experiment med AppleTalk påbörjade. Ska se om det går att routa och
+tunnla AppleTalk med UAR eller Netatalk så att Bifrost även kan
+tjänstgöra som brandvägg åt nätverksutrustning som pratar AppleTalk.
+</PRE>
+
+<HR>
+
+<H3>1998-07-02</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.3a</I>
+
+Adderat en fil <B>.inputrc</B> för att bash ska kunna hantera bl.a.
+svenska tecken korrekt:
+
+set meta-flag on
+set convert-meta off
+set output-meta on
+</PRE>
+
+<HR>
+
+<H3>1998-06-20</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.3</I>
+
+Tagit bort clock och tulip-setup. Skapat /mnt som av misstag togs bort
+(behövs av restore och backup om diskett ska användas för backuper).
+Adderat en länk från /filter/.terminfo som pekar på /.terminfo.
+Uppgraderat shutdown, halt och reboot, samt nya mount och umount.
+
+Version 1.2i byter namn och 1.3 släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-06-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2i</I>
+
+host adderat till distributionen för att kunna kolla
+namnuppslagning o.d.
+
+Jämförelser mellan K6 (233MHz cpu, 66MHz buss) och P-II (392MHz
+cpu, 112MHz buss) gjorda för att se hur prestanda ändras beroende
+på mängden filter-regler (eller avsaknad av de samma) och valet av
+CPU/moderkort/klockning. Resultaten redovisas i separat papper.
+
+Tulip-drivern (0.83) uppdaterad för att fungera bra med 2.0.34-kärnans
+källkodsträd (några småfixar för att kompileringen ska gå rent).
+2.0.34-kärnan nu införd i distributionen.
+
+ICONFIG_IP_ALWAYS_DEFRAG påslaget i kärnan.
+
+Följande binärer uppgraderade: hostname, netstat, arp, ifconfig
+och route. Några nya: ip, ipgrab och rarp.
+
+v1.2i och källkoden för kärnan och färdigkompilerad kärna upplagt
+via ftp, men inte officiellt släppt ännu - ej testad.
+</PRE>
+
+<HR>
+
+<H3>1998-06-16</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2i</I>
+
+configure, restore och backup flyttade till /sbin. PATH-variabeln
+uppdaterad till att inkludera /bin, /sbin, /usr/bin, /usr/sbin och
+/etc i /etc/profile och i samtliga rc-script som har en PATH-variabel.
+
+configure, restore och backup uppgradera för att inte vara beroende
+av vilket directory de körs i och var olika hjälpprogram finns (ska
+ligga i PATH:en i stället).
+
+Robert förbereder tar-filer med paket för att stödja ATM, som ska
+kunna lyftas in i distributionen om så behövs.
+
+Förberedande för en 1.4-distribution baserad på 2.1-kärnan och med
+ATM-stöd m.m. Denna kommer dock att vara en labb-distribution tills
+stabiliteten har kunnat verifieras.
+</PRE>
+
+<HR>
+
+<H3>1998-06-12</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2i</I>
+
+Ny version av SSH (1.2.25) har släppts, vilken bl.a. inkluderar en
+rejäl säkerhetsfix. Nya SSH:n därmed inkluderad i release-trädet.
+
+Provskott gjorda mot P-II- och K6-versionerna av Bifrost v1.2h.
+Data presenteras i separat dokument.
+
+Linux-kärnan 2.0.34 visar sig innehålla en annan version (0.88) av
+Tulip-drivrutinen än vad vi kör med (0.83). I och med att 0.83 visat
+sig vara så stabil och dessutom är anpassad för fast route, kommer
+2.0.34 att kompileras med 0.83 ändå.
+</PRE>
+
+<HR>
+
+<H3>1998-06-05</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+Ändringar gjorda i /etc/termcap. Ny kärna (2.0.34pre) adderad i
+distributionen. Kärnan har nu också support för hårdvaru-watchdog.
+SSH är nu av version 1.2.23. Ändringar gjorda i några textfiler.
+Nya källkodsträdet finns nu på robur.slu.se och likaså en separat
+fixad kärna för att kunna uppgradera de äldre versionerna.
+
+Version 1.2h släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-05-28</H3>
+<PRE>
+<B>Tom:</B>
+
+Provkörning av en Pentium-II, 112MHz bus, 392MHz cpu, ASUS BX
+moderkort. Mycket goda resultat med fast route 149.500 PPS på
+Fast Ethernet och ändå processorkraft kvar till annat.
+</PRE>
+
+<HR>
+
+<H3>1998-05-05</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+En liten ändring har gjorts i /etc/configure för att försäkra sig
+om att IP-forwarding ska kunna fungera under 2.1-kärnan och senare
+(man tar bort några kommentarsrader i /etc/rc.d/rc.inet så att ett
+par variabler i /proc-filsystemet sätts till 1).
+</PRE>
+
+<HR>
+
+<H3>1998-04-28</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+Systemet har nu fått projekt-namnet Bifrost Network Project.
+</PRE>
+
+<HR>
+
+<H3>1998-04-23</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+Funderingar över vad projektet ska få för slutgiltigt produktnamn.
+Några fornnordiska namn är de som ligger bäst till...
+
+Konfigurations-scriptet har fått några fler defaultvärden som baseras
+på de tidigare inmatade värdena. T.ex. nätverksnummer baserat på
+IP-nummer och domän-adress baserat på maskin-adress.
+</PRE>
+
+<HR>
+
+<H3>1998-04-21</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+En buggfix för att klara nya DoS-attacker (som i vissa fall låser systemet
+helt) har adderats till kärnan - 2.0.34 lär snart komma ut och har dessa
+fixar och lite till...    kärnan och den fixade distributionen av kärnan
+finns för övrigt via <A HREF="dist.html">distributionssidan</A>.
+</PRE>
+
+<HR>
+
+<H3>1998-04-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+Kbdrate och loadkeys flyttade till rc.S från rc.M för att aktiveras även
+när man drar igång systemet i single user mode.
+
+ipfwadm är satt suid root för att filteranvändaren själv ska kunna ladda
+om reglerna.
+
+SNMP är avstängd som default (liksom gated, DHCP och NTP). För att slå på
+dessa, måste #-tecknet tas bort i respektive rc-script.
+
+Laddbara moduler i kärnan är adderat för att kunna ladda in
+bl.a. en temperaturavkänningsmodul (LM78). Insmod, rmmod och lsmod behövs
+dessutom för att kunna utföra laddning m.m. av moduler. Modulen lm78.o
+adderad till /sbin och ett script rc.lm78 skapat (laddas ej per default).
+</PRE>
+
+<HR>
+
+<H3>1998-04-17</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+Ny LILO installerad. Single mode boot fungerar nu som det är tänkt (fixat
+ett fel i /etc/inittab). En fragmenteringsbugg som upptäckts i 2.0.33 har
+åtgärdats (en fix för detta lär senare dyka upp i en ny release av kärnan,
+då denna fix inte fungerar med masquerading).
+</PRE>
+
+<HR>
+
+<H3>1998-04-10</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+En wrapper kallad <B>remount</B> ska användas i stället för att ha
+<B>mount</B> suid root (säkrare). De gamla aliasen <B>root_write</B> och
+<B>root_read</B> kommer därmed att ersättas med <B>remount w</B> och
+<B>remount r</B>.
+
+Striktare filrättigheter - 'x' borttaget från gruppen 'root' då root
+ändå kan exekvera dessa programfiler. Dessutom är 'r' borttaget på
+bin-directory:n så att filter-användaren inte kan se vilka binärer som
+finns tillgängliga.
+
+Nya programversioner installerade: rdev, more, kbdrate m.fl.
+</PRE>
+
+<HR>
+
+<H3>1998-04-09</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+Watchdog-device:t skapas med <B>mknod /dev/watchdog c 10 130</B>.
+Vakthunden fungerar nu som tänkt - test har gjorts på ett system i drift.
+
+Omkompilering av kärnan efter bortrensning av ytterligare någon onödig
+del. Tulip-drivern 0.83 tillbaka i stället för 0.87K i och med att det
+är 0.83 som har använts för fast route i 2.1.x-kärnan och därmed lär
+användas framöver även i 2.2. 0.83 fungerar bra med NetGear-korten.
+</PRE>
+
+<HR>
+
+<H3>1998-03-31</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2h</I>
+
+En mjukvaru-watchdog ska läggas in för att starta om systemet om det
+kraschar. Tillägg för detta adderas i kärnan och en enkel watchdog skriver
+sedan till ett speciellt device (/dev/watchdog). Om vakthunden slutar skriva
+till device:t startas systemet om efter 1 minut. Om Programmet skulle dö,
+så startas systemet inte om, utan det är bara i händelse av att man gör
+suspend på programmet eller att ett fel i systemet uppstår (är det tänkt :-).
+
+clock startas i /etc/rc.d/rc.S med parametrarna -u och -s. Om BIOS-klockan
+sätts till GMT och den lokala tidszonen (variabeln TZ) sätts till t.ex. MET,
+så ska tiden vara korrekt och fungera med sommar/vinter-tid.
+
+En omkompilering av ntpd med vänner, har gjorts för att se om det går att
+få ordning på ett problem med att ntpd ibland tappar synkroniseringen
+(adjtime har ökats från 500/Hz till 5000/Hz).
+
+v1.2h ska bli v1.3 när den släpps. Tanken är att få en slutlig drift-release,
+som ska vara stabil och väl fungerande, medans arbetet sedan kan fortsätta
+med experiment-distributioner.
+</PRE>
+
+<HR>
+
+<H3>1998-03-26</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+Version 1.2g släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-03-24</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+Automatisk ombootning satt till 1 minut efter "panic" i kärnan.
+<HR>
+
+<H3>1998-03-17</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+Stöd för PPP adderat till kärnan för att kunna använda serielinor
+förutom Ethernetkorten. Programvaran är dock inte inlagd.
+
+NTP-servern sätter nu tiden med ntpdate innan ntpd startas för att
+försäkra sig om att tidsdifferensen inte blir för stor (ntpd stänger av
+sig själv om den får alltför stort fel att ta hand om vid start).
+
+Test med fasta routes och proxy-arp görs för att se om det går att sätta
+en maskin tillhörandes det inre nätet (IP-mässigt sätt) på DMZ-interfacet,
+men få det att se ut som om maskinen sitter på det inre nätet. Ex:
+
+   route add -host 130.238.99.22 gw 10.0.0.22
+   arp -s 130.238.99.22 00:00:f8:31:84:58
+
+Paket utifrån borde hitta rätt via route-tabellen och förhoppningsvis
+ska proxy-arp:en kunna förse 99-nätet med information om vilket interface
+som ska användas för att skicka paket till, vilka sedan routas rätt i
+brandväggen.
+Ett alternativ till proxy-arp är att sätta upp 130.238.99.22 på samma
+interface som 130.238.99.2 (virtuella hosts m.a.o.). Kan eventuellt vara
+en bättre lösning.
+
+Stöd för virtuella hosts adderat i kärnan för att kunna testa i samband
+med fasta routes.
+</PRE>
+
+<HR>
+
+<H3>1998-03-10</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+<B>Vi</B> tillbaka på allmän begäran, fast <B>edit</B> finns kvar, då det är
+en mycket bättre editor på alla sätt och vis...
+
+/etc/configure omändrad så att man vid uppstart av ett nytt system (vid t.ex.
+byte av release) får en fråga om man vill konfigurera systemet från en
+backup-floppy. Det är samma backup som man skriver ner med programmet
+/etc/backup och läser tillbaka med /etc/restore. Vad configure gör är nämligen
+att ställa frågan och om jakande svar, anropa restore och sedan boota om
+systemet.
+</PRE>
+
+<HR>
+
+<H3>1998-03-06</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+Adderat ett script <B>/etc/fastroute-enable</B> för att i 2.1.x-kärnorna
+kunna dra igång fast routing (används ej i standardversionen ännu).
+
+Modifierat /etc/dhcpd.conf så att ett entry för NTP-server finns med.
+
+Ny filtermodul för NTP inlagd under /default.
+
+Manual för installation och administration är påbörjad.
+</PRE>
+
+<HR>
+
+<H3>1998-03-03</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+<B>Vi</B> utbytt mot en Emacs-liknande editor (JOE i jmacs-versionen).
+Editorn kallas <B>edit</B> och resursfilen heter <B>/etc/editrc</B>.
+
+NTP-servern verkar stabil och fungerar bra i testinstallationen (plockar
+tiden externt och fungerar som lokal server åt nätet bakom brandväggen).
+</PRE>
+
+<HR>
+
+<H3>1998-02-27</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+Problemet med DHCP-servern fixat. I exempelfilen är nu tiden satt till
+exakt en vecka.
+
+NTP-servern testas på Hades. Några smärre justeringar har gjorts i
+rc-scripten för att starta ntpd på rätt sätt.
+</PRE>
+
+<HR>
+
+<H3>1998-02-24</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2g</I>
+
+En NTP-server är under test och ska läggas till distributionen. Kommer
+ej (liksom DCHP-servern) att startas per default, utan måste aktiveras
+genom att ta bort kommentarsrader i /etc/rc.d/rc.M.
+
+DHCP-servern har problem att dela ut "leases" på mer än ett dygn,
+vilket ska åtgärdas.
+
+The Linux Routing Project har gjort en del intressant arbete - en del
+idéer kan nog i någon form appliceras även på detta projekt. En enkel
+editor kan t.ex. vara en god idé (vi finns redan, men bättre alternativ
+kan nog hittas).
+</PRE>
+
+<HR>
+
+<H3>1998-02-19</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2f</I>
+
+Gjort en mindre justering i /etc/configure för skapandet av /etc/rc.d/rc.inet.
+
+/etc/lilo.conf omändrad, bl.a. så att diskgeometrin inte blir hårdlödd
+(men finns med i bortkommenterat skick).
+
+Lagt till ommontering av disk read/write under floppy-operationerna i
+backup och restore.
+
+Städat bort en skräpfil under /.terminfo (ca 100 KB).
+
+Fixat ett fel med den nya storleken på RAM-disken (allokering måste ges i
+lilo om storleken skiljer sig från 4096 KB).
+
+Några av rc-scripten modifierade av estetiska skäl.
+
+Version 1.2f släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-02-18</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2f</I>
+
+Rensat upp och modifierat mallarna för filter-reglerna under /default.
+
+Backup och restore är klara. Programmen heter <TT>/etc/backup</TT> och <TT>/etc/restore</TT>.
+Man gör dels en backup till en fil <TT>/tmp/backup.tar</TT> och som extra
+val, till en diskett. Restore-programmet kan sedan läsa tillbaka de
+systemspecifika delarna från <TT>/tmp/backup.tar</TT> eller från disketten.
+Det blir på detta sätt enklare att innan man vill köra en ny distribution,
+göra en backup, installera nya flashdisken och sedan snabbt läsa tillbaka
+de egna systemfilerna.
+</PRE>
+
+<HR>
+
+<H3>1998-02-17</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2f</I>
+
+README-fil adderad till distributionen, innehållande licensinformation.
+Distributionen faller under GNU-licensen.
+
+Storleken på RAM-disken utökad till 8192 KB, mot tidigare 4096 KB.
+
+DHCP klart och har en exempelfil installerad under /etc. Startas ej per
+default, utan måste aktiveras i /etc/rc.d/rc.M. Verkar vara tillräckligt
+stabil under Linux (motsvarande har körts under SunOS 4.1.4 ett drygt
+halvår utan några problem).
+
+Påbörjat arbete med att skapa ett backup- respektive restore-program
+för att kunna lagra undan systemets konfiguration på diskett och/eller
+tar-fil som kan skickas via nätet.
+</PRE>
+
+<HR>
+
+<H3>1998-02-13</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2f</I>
+
+Två kärnor finns att tillgå. Med tulip 0.87K som bootar per default
+och med tulip 0.83 som man får ändra på i Lilo för att komma åt.
+
+DHCP är adderat. Återstår att ordna i configure för att aktivera
+detta. Vissa specialhack måste göras för att det ska fungera i
+2.0-kärnorna, men ska vara bättre i 2.2 när de blir stabila.
+
+/etc/rc.d/rc.dhcp adderat för att starta DHCP. Likaså är rc.M modifierat.
+</PRE>
+
+<HR>
+
+<H3>1998-02-06</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2e</I>
+
+Modifiering av <TT>configure</TT> så att host-namnet läggs in i
+/etc/hosts med samtliga IP-nummer. Större delen av konfigurationen
+sparas också i filen /etc/.config och kan läsas in som defaultvärden
+vid nästa körning av configure.
+
+tulip-drivern utbytt till version 0.87K.
+
+Kärnan rensad på support av FAT, VFAT m.fl. och 3COM-kort.
+
+De gamla 2.1.x-kärnorna borttagna. Bara produktionskärnan 2.0.33 är kvar.
+
+Version 1.2e släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-02-05</H3>
+<PRE>
+<B>Tom:</B>
+En del filterregler har ändrats på Hades. Inetd och DNS har stängts av.
+
+Masquerading uppsatt och fungerar på Sesam.
+</PRE>
+
+<HR>
+
+<H3>1998-02-03</H3>
+<PRE>
+<B>Tom:</B>
+Ny installation av systemet har gjorts på en maskin (Sesam) som ska
+kontrollera studentdatorernas nätverk (på inst. f. kemi).
+Masquerading kommer att användas för att översätta det inre A-nätets
+adresser. De protokoll som ska vara öppna för trafik är framförallt
+http, telnet, SSH och ftp. Ingen ingående trafik.
+
+   http:  ut till hela världen
+   telnet: ut till SLU
+   SSH: ut till SLU
+   ftp: ut till Rhea
+
+Nya regler ska konstrueras för denna maskin (stäng av allt och slå sedan
+på vad som behövs).
+</PRE>
+
+<HR>
+
+<H3>1998-01-29</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2d</I>
+
+Modifierat configure m.a.p. några default-värden och fixat ett par fel
+rörande ett par (y/n)-frågor.
+
+Adderat libdl.so.1 som behövs för bash.
+
+Kör igång svenskt tangentbord tidigt vid boot, så att det finns med redan
+när configure körs.
+
+Modifierat rc-script (defaultfrågor, tangentbord och montering av disken
+till read-only innan ombootning sker).
+
+Gjort om algoritmen för skapandet av riktad broadcast (för filterreglerna)
+utifrån nätmask och nätverksadress. Skapar nu korrekt adress även för
+nät som är mindre än 8 bitar.
+
+Version 1.2d släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-01-27</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2c</I>
+
+Diverse ändringar i configure efter gårdagens testkörning. Defaultvärden
+(några ändrade) om man bara slår RETURN och kommer ihåg gamla värden om
+man kör om scriptet direkt. Välja DNS eller ej, stavfelsfixar m.m.
+
+Stängt av gated som default.
+
+DNS avstängt som default (allt får baseras på IP-nummer).
+
+Broadcast alltid satt till 255.255.255.255.
+
+/etc/rc.d/rc.K fixat så att maskinen kan gå upp i single mode om så krävs.
+
+kbdrate är satt för dem som skriver som krattor :-)
+
+Version 1.2c släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-01-22</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2b</I>
+
+klogd ändrad så att pid-filen hamnar i /var/run och inte /etc (alla andra
+pid:ar ligger redan i /var/run).
+
+Ssh-paketet uppgraderad till 1.2.22 och ssh själv är satt suid-root för att
+det ska fungera även för filter-användaren.
+
+Samtliga binärer har fått ändrade rättigheter (kört chmod a-rw på dem) och
+/dev/null har satts skrivbar för alla användare.
+
+I $HOME/.ssh har identity och de andra filerna tagits bort.
+
+Identity skapas av configure-scriptet, liksom maskinens egna nycklar
+i /etc/ssh_host_key*.
+
+Vid boot skapas known_hosts och random_seed för båda användarna i /tmp och
+länkar till dessa filer är satta på respektive plats i $HOME/.ssh.
+
+Configure-scriptet nästan klart, vilket kommer att underlätta konfigurationen
+av nya maskiner. Ligger under /etc/configure.
+
+/etc/rc.d/rc.M modifierad så att configure startas vid boot om systemet ej
+är konfigurerat (filen /etc/.notconfigured finns).
+
+Versionsnumret på distributionen läggs in i filen /etc/.version.
+Versionsnummer skrivs enligt X.Y[z], där X är major-release,
+Y är minor-release och eventuellt z är bokstav [a-z] som betecknar
+buggfixar eller smärre uppgraderingar, men i övrigt i stort sett samma system.
+
+Exempelfiler för filtreringen ligger under /default.
+
+Version 1.2b släppt.
+</PRE>
+
+<HR>
+
+<H3>1998-01-09</H3>
+<PRE>
+<B>Tom:</B>
+3c590-kortet bortplockat och DEC-korten fungerar nu korrekt vad gäller
+autosensing.
+</PRE>
+
+<HR>
+
+<H3>1998-01-08</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2a</I>
+
+agetty och syslogd uppgraderade för bättre stabilitet och funktion.
+Diverse fixar i rc-script och specialmontering av /dev för att få
+shadow-lösenord att fungera tillsammans med det icke skrivbara disken
+(monterad read-only i normala fall).
+Blir maskinen mindre stabil för att /dev ligger via diverse länkar ?
+(Robert har funderingar kring alla dessa specialhack)
+
+Autosensing verkar fungera när DEC-korten körs på en annan maskin och
+AUI-porten kan då användas. Ny test på Hades ska göras för att se om
+resultatet blir detsamma även där...
+</PRE>
+
+<HR>
+
+<H3>1998-01-02</H3>
+<PRE>
+<B>Tom:</B>
+<I>v1.2</I>
+
+Kärnan uppgraderad till 2.0.33.
+
+Shadow-lösenord aktiverat på Hades och nya versioner av diverse bibliotek,
+däribland libc har installerats.
+</PRE>
+
+<HR>
+
+<H3>1997-12-19</H3>
+<PRE>
+<B>Tom:</B>
+Nya Hades är nu igång. Ett 3c590-kort har adderats till maskinen i och med
+att DEC-korten inte ville kännas vid AUI, utan bara aktiverade TP-porten.
+3COM-kortet har tidigare satts hårt till att använda AUI (vilket krävs för
+den fiberoptiska transceivern).
+
+Hårdvaran är bl.a.:
+
+AOpen moderkort (ATX)
+AOpen miditower
+20MB flashdisk
+1.44MB floppy
+3st fläktar varav en för CPU
+AMD K6 200MHz
+1st D-Link 530CT+ TP/BNC
+2st DEC 450 TP/BNC/AUI
+1st 3c590 TP/BNC/AUI
+
+Diverse småfixar i rc-scripten har gjorts för att maskinen ska boota
+smidigt och På Rätt Sätt (tm).
+</PRE>
+
+<HR>
+
+<H3>1997-12-18</H3>
+<PRE>
+<B>Tom:</B>
+En merge har gjorts mellan olika versioner av flashdisk-innehållet och nya
+versioner av diverse program har lagts in (mount, ssh m.fl.).
+Hårdvaran till nya Hades är klar sedan någon vecka och har provkörts med
+den nya flashdisken - fungerar bra. Återstår bara att installera det hela
+på plats.
+
+Den "gamla" Hades kommer att få nya uppgifter på Datoravdelningen.
+</PRE>
+
+<HR>
+
+<H3>1997-12-10</H3>
+<PRE>
+<B>Tom:</B>
+Nya funderingar över vad som kanske ska finnas med eller ändras:
+
+* VPN med CIPE eller IPsec
+
+* generell proxy från fwtk (att användas mot servers på privat nät)
+
+* Big Brother för processövervakning och rapportering
+
+* Bättre modularisering för undvikande av regelkrockar
+
+* Skärpa upp den interna säkerheten mot filter-användaren
+</PRE>
+
+<HR>
+
+<H3>1997-12-04</H3>
+<PRE>
+<B>Tom:</B>
+Letar efter en mount som kan köras suid för filter (montera flashdisken som
+read-write och sedan tillbaka till read-only vid filterändringar).
+
+Diverse småfixar gjorda; Ändrat på SNMP-informationen, hostname satt korrekt,
+tagit bort history för shellet (ingen onödig skrivning på flashdisken),
+ändrat så att användaren filter kan köra ipfwadm, rensat bland gamla
+skräpfiler och lite till.
+
+Ett test av trafikmätningar kan ses på min egen <A HREF="https://tkarlsson.data.slu.se/traffic/">maskin</A>. Noteras skall
+dock att man här måste ha stöd för SSL i sin webbläsare och att maskinen ibland
+kan vara onåbar p.g.a. experiment. Regelbunda mätningar kan komma att istället
+flyttas över till någon annan maskin (www.kemi.slu.se t.ex.).
+
+</PRE>
+
+<HR>
+
+<H3>1997-11-18</H3>
+<PRE>
+<B>Tom:</B>
+En ny användare <B>filter</B> är skapad för att hantera filterreglerna.
+Genom denna separation kan man överlåta regeluppdateringar till någon
+annan än den som hanterar routerfunktionerna (root). Reglerna är flyttade
+till den nya användarens hemkonto.
+
+Brandväggskonstruktionen har fått namnet <B>Hades Firewall System</B>
+för den som är engelsktalande. En svensk översättning torde bli något
+i stil med Brandväggen Hades (jfr bokhyllan Billy :-).
+</PRE>
+
+<HR>
+
+<H3>1997-11-11</H3>
+<PRE>
+<B>Tom:</B>
+Diverse regler uppdaterade för att släppa igenom viss nödvändig trafik,
+som annars störs. Se de speciella <A HREF="regler.html">reglerna</A> för
+närmare detaljer.
+</PRE>
+
+<HR>
+
+<H3>1997-11-06</H3>
+<PRE>
+<B>Tom:</B>
+Ännu en nätverksskrivare är spärrad för telnet. Ftp, telnet och ssh kan
+bara köras mot Rhea och Ares, utom från modempolsnätet, där det går att
+köra även mot andra maskiner på nät 99.
+UDP-portar 0-600 är spärrade utom för DNS och (routing mot brandväggen),
+som är öppnat mot Sluger och Pinus.
+
+Regelmoduler som är nya:
+
+fwrules.login.net
+fwrules.smurf
+</PRE>
+
+<HR>
+
+<H3>1997-10-24</H3>
+<PRE>
+<B>Tom:</B>
+All trafik mot X-terminalen har stängts av (kör ändå bara lokalt) och
+all ICMP trafik har stängts av, utom för nät 96 och 98. Dessutom kan bara
+SMTP-trafik nå Rhea (den enda maskin som ska köra sendmail på 99-nätet).
+Regler är nu:
+
+fwrules
+fwrules.basic
+fwrules.icmp
+fwrules.login
+fwrules.netbios
+fwrules.nfs
+fwrules.printers
+fwrules.smtp
+fwrules.snmp
+fwrules.xterm
+</PRE>
+
+<HR>
+
+<H3>1997-10-16</H3>
+<PRE>
+<B>Tom:</B>
+Regler för att stänga av trafiken till nätskrivarna, har införts. Endast
+subnät 96 och 98 kommer åt skrivarna (förutom det lokala nätet förstås).
+Detta är för att hindra att utomstående kan skriva ut på skrivarna och
+logga in på dem och ändra på inställningarna:
+
+-rwx------   1 root     root          977 Oct 10 11:00 fwrules.printers*
+
+
+# Accept connections to Kemil1
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_96 -D $KEMIL1
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_98 -D $KEMIL1
+
+# Accept connections to Kemil2
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_96 -D $KEMIL2
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_98 -D $KEMIL2
+
+# Accept connections to Kemil3
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_96 -D $KEMIL3
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_98 -D $KEMIL3
+
+# Accept connections to Kemidj3
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_96 -D $KEMIDJ3
+/sbin/ipfwadm -F -a accept -P tcp -S $NET_98 -D $KEMIDJ3
+
+# Deny other printer connections
+/sbin/ipfwadm -F -a deny -S any/0 -D $KEMIL1 -o
+/sbin/ipfwadm -F -a deny -S any/0 -D $KEMIL2 -o
+/sbin/ipfwadm -F -a deny -S any/0 -D $KEMIL3 -o
+/sbin/ipfwadm -F -a deny -S any/0 -D $KEMIDJ3 -o
+</PRE>
+
+<HR>
+
+<H3>1997-09-25</H3>
+<PRE>
+<B>Tom:</B>
+filter-reglerna är nu modulariserade och uppsnyggade en del och ligger
+i separata filer (fwrules anropar de andra):
+
+-rwx------   1 root     root         1206 Sep 25 16:53 fwrules*
+-rwx------   1 root     root          406 Sep 25 16:47 fwrules.basic*
+-rwx------   1 root     root          432 Sep 25 16:47 fwrules.login*
+-rwx------   1 root     root          880 Sep 25 16:47 fwrules.netbios*
+-rwx------   1 root     root          782 Sep 25 16:57 fwrules.nfs*
+-rwx------   1 root     root          548 Sep 25 16:47 fwrules.snmp*
+</PRE>
+
+<HR>
+
+<H3>1997-09-24</H3>
+<PRE>
+<B>Tom:</B>
+Öppnat för NFS och portmap mellan TSL och Ares.
+
+/sbin/ipfwadm -F -a accept -P tcp -S 130.238.67.0/24 sunrpc nfsd -D 130.238.99.5
+/sbin/ipfwadm -F -a accept -P udp -S 130.238.67.0/24 sunrpc nfsd -D 130.238.99.5
+
+<B>Tom:</B>
+Ändrade regler för inloggning. Nu endast från 4 st maskiner.
+
+# Accept ftp, ssh and telnet to firewall from Rhea, Tkarlsson, Robur and Buteo
+/sbin/ipfwadm -I -a accept -P tcp -S 130.238.99.4 -D 130.238.99.2 20 21 22 23
+/sbin/ipfwadm -I -a accept -P tcp -S 130.238.98.44 -D 130.238.127.42 20 21 22 23
+/sbin/ipfwadm -I -a accept -P tcp -S 130.238.98.12 -D 130.238.127.42 20 21 22 23
+/sbin/ipfwadm -I -a accept -P tcp -S 130.238.131.110 -D 130.238.127.42 20 21 22 23
+
+Tagit bort några agetty:er från /etc/inittab.
+</PRE>
+
+<HR>
+
+<H3>1997-09-23</H3>
+<PRE>
+<B>Tom:</B>
+Nya regler för att stoppa NFS och portmap, utom mellan nät 98 och 99.
+(skall addera för nfs-montering av cd-rom på TSL från Ares.kemi.slu.se)
+
+# Accept portmap between net-99 and net-98
+/sbin/ipfwadm -F -a accept -P tcp -S 130.238.98.0/24 sunrpc -D 130.238.99.0/24
+/sbin/ipfwadm -F -a accept -P udp -S 130.238.98.0/24 sunrpc -D 130.238.99.0/24
+
+# Deny other portmap
+/sbin/ipfwadm -F -a deny -P tcp -S any/0 sunrpc -D 130.238.99.0/24 -o
+/sbin/ipfwadm -F -a deny -P udp -S any/0 sunrpc -D 130.238.99.0/24 -o
+
+# Accept NFS from net-99 to net-98
+/sbin/ipfwadm -F -a accept -P tcp -S 130.238.98.0/24 nfsd -D 130.238.99.0/24
+/sbin/ipfwadm -F -a accept -P udp -S 130.238.98.0/24 nfsd -D 130.238.99.0/24
+
+# Deny other NFS
+/sbin/ipfwadm -F -a deny -P tcp -S any/0 nfsd -D 130.238.99.0/24 -o
+/sbin/ipfwadm -F -a deny -P udp -S any/0 nfsd -D 130.238.99.0/24 -o
+
+<B>Tom:</B>
+Lade till nfsd i /etc/services.
+</PRE>
+
+<HR>
+
+<H3>1997-09-21</H3>
+<PRE>
+<B>Tom:</B>
+Riggat om den fysiska installationen, med bl.a. en kortare och mjukare
+drop-kabel.
+</PRE>
+
+<HR>
+
+<H3>1997-09-19</H3>
+<PRE>
+<B>Robert:</B>
+Primär testkörning av nätprestanda med netperf. Brandväggen verkar klara
+sig bra CPU-mässigt och ger en "through-put" på ca 7 Mbit/s. Noggrannare
+tester måste göras.
+
+<B>Tom:</B>
+Stängt av inloggning till brandväggen från maskiner utanför 130.238.xx.xx.
+
+# Accept ftp, ssh and telnet to firewall from net-130.238
+/sbin/ipfwadm -I -a accept -P tcp -S 130.238.0.0/16 -D 130.238.99.2 20 21 22 23
+/sbin/ipfwadm -I -a accept -P tcp -S 130.238.0.0/16 -D 130.238.127.42 20 21 22 23
+
+# Deny other login
+/sbin/ipfwadm -I -a deny -P tcp -S any/0 -D 130.238.99.2 20 21 22 23 -o
+/sbin/ipfwadm -I -a deny -P tcp -S any/0 -D 130.238.127.42 20 21 22 23 -o
+
+<B>Tom:</B>
+Nya regler för att släppa igenom CIFS mellan 99-nätet och Sluger och Pinus.
+Går det att skriva samma regler på ett enklare (kortare) sätt ?...
+
+# Accept CIFS between net-99 and sluger
+/sbin/ipfwadm -F -a accept -P tcp -S 130.238.99.0/24 -D 130.238.96.1 139
+/sbin/ipfwadm -F -a accept -P tcp -S 130.238.96.1 139 -D 130.238.99.0/24
+/sbin/ipfwadm -F -a accept -P udp -S 130.238.99.0/24 137 -D 130.238.96.1 53
+/sbin/ipfwadm -F -a accept -P udp -S 130.238.96.1 53 -D 130.238.99.0/24 137
+
+# Accept CIFS between net-99 and sluger
+/sbin/ipfwadm -F -a accept -P tcp -S 130.238.99.0/24 -D 130.238.98.11 139
+/sbin/ipfwadm -F -a accept -P tcp -S 130.238.98.11 139 -D 130.238.99.0/24
+/sbin/ipfwadm -F -a accept -P udp -S 130.238.99.0/24 137 -D 130.238.98.11 53
+/sbin/ipfwadm -F -a accept -P udp -S 130.238.98.11 53 -D 130.238.99.0/24 137
+
+# Deny other CIFS
+/sbin/ipfwadm -F -a deny -P tcp -S any/0 137 138 139 -D any/0 -o
+/sbin/ipfwadm -F -a deny -P udp -S any/0 137 138 139 -D any/0 -o
+/sbin/ipfwadm -F -a deny -P tcp -S any/0 -D any/0 137 138 139 -o
+/sbin/ipfwadm -F -a deny -P udp -S any/0 -D any/0 137 138 139 -o
+</PRE>
+
+<HR>
+
+<H3>1997-09-16</H3>
+<PRE>
+<B>Tom:</B>
+Nya regler för att hindra spoofing är adderade i /etc/rc.d/fwrules
+
+# Stop external spoofing
+/sbin/ipfwadm -I -a deny -V 130.238.127.42 -S 130.238.99.0/24
+/sbin/ipfwadm -I -a deny -V 130.238.127.42 -S 130.238.127.42
+
+<B>Tom:</B>
+En webbsida har skapats för projektet. Varför ?  Tja, varför inte...  :-)
+</PRE>
+
+<HR>
+
+<H3>1997-09-15</H3>
+<PRE>
+<B>Olle:</B>
+Jag har gått ett steg till för att i varje fall slippa routingbekymmer
+med andra routers än den med FW-interfacet:
+
+I ult-gw har jag tagit bort
+
+  ip route 130.238.99.0 255.255.255.0 130.238.127.78
+
+I ultrouter5 har lagt till
+
+  router ospf 96
+    redistribute static subnets
+
+
+<B>Olle:</B>
+För att spegla verkligheten heter nu burken hades.kemi.slu.se
+130.238.99.2 (och även 130.238.127.42).
+
+sluger.slu.se 22 /home/olof % host -a hades.kemi.slu.se.
+hades.kemi.slu.se       A       130.238.99.2
+hades.kemi.slu.se       A       130.238.127.42
+</PRE>
+
+<HR>
+
+<H3>1997-09-14</H3>
+<PRE>
+<B>Robert:</B>
+Vi har diskuterat att testa lågprisvariant för IP brandväggar baserad på 
+PC-hårdvara. 
+
+Intresse funnits ifrån säkerhetsinvolverade både vid UU och SLU (Bl a
+Torbjorn Victorin/UU och Tom Johans/SLU) 
+
+
+Inst för Kemi vid SLU ansågs vara en lämplig första kandidat för test 
+av brandväggen. Tom är datoransvarig där och samtidigt involverad i SLU 
+nätsäkerhet en bra kombination för just detta projekt.
+
+
+Sagt och gjort...
+
+I fredags kopplade vi in firewallen som vi byggt tidigare baserat en PC-
+hådvara med flashminne och i industiPC chassi. Som OS används ett mycket 
+strippat Linux system.
+
+Burken fungerar som IP firewall och router. Med IP-nummer 130.238.127.42
+resp. 130.238.99.2.
+
+
+traceroute -n 130.238.99.4
+
+                 1  130.238.98.2  1.424 ms  1.331 ms  1.361 ms
+                 2  130.238.127.78  1.865 ms  1.718 ms  1.792 ms
+Firewall =>      3  130.238.127.42  1.094 ms  1.059 ms  1.032 ms
+                 4  130.238.99.4  2.472 ms  2.148 ms  2.125 ms
+
+
+För närvarande filtreras netbios portarna tcp/udp 137,138,139 både in 
+och ut. 
+Info om hur FW-koden finns på:
+http://www.xos.nl/linux/ipfwadm/
+
+
+För närvarande är FW-reglerna enl följande:
+
+# Flush all previous forwarding entries
+/sbin/ipfwadm  -F -f
+#
+# 
+#
+/sbin/ipfwadm -F -a deny -b -P tcp -S any/0 137 138 139  -D any/0 
+/sbin/ipfwadm -F -a deny -b -P udp -S any/0 137 138 139  -D any/0 
+#
+/sbin/ipfwadm -F -a deny -S any/0 -D 130.238.99.255
+
+
+Och som synes har några paket redan fastnat i burken...
+
+expgw:/# ipfwadm -F -l -e
+IP firewall forward rules, default policy: accept
+ pkts bytes type  prot opt  tosa tosx ifname  ifaddress       source            
+   destination          ports
+   10   440 deny  tcp  b--- 0xFF 0x00 any     any             anywhere          
+   anywhere             137,138,139 -> any
+ 3637  261K deny  udp  b--- 0xFF 0x00 any     any             anywhere          
+   anywhere             137,138,139 -> any
+    0     0 deny  all  ---- 0xFF 0x00 any     any             anywhere          
+   130.238.99.255       n/a
+expgw:/# 
+
+Att fundera på?
+
+Ska FW köra något routing prot?
+Hur loggar man bäst?
+Hemsida för projektet?
+Tester?
+</PRE>
+
+<HR>
+<ADDRESS>
+<A HREF="http://irt.slu.se/tomk/">Tom Johans</A> <A HREF="mailto:Tom.Johans@_NO_SPAM_data.slu.se"> &lt;Tom.Johans@_NO_SPAM_data.slu.se&gt;</A>
+</ADDRESS>
+<!-- hhmts start -->
+Last modified: Tue Mar 30 14:12:30 2004
+<!-- hhmts end -->
+</BODY>
+</HTML>
