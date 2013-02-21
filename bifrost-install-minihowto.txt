@@ -4,9 +4,9 @@
 
                           Markku Antikainen
 
-Revision: 2100-10-25:
+Revision: 2013-02-21
 	  Use 0 indicating no swap space in example
-	  Updated to bifrost-rc-7.0-2.tar.gz	  
+	  Updated to bifrost-rc-7.0-3.tar.gz	  
 
 
 What you need
@@ -47,22 +47,26 @@ sudo ./make_bifrost <device name> <partition size> <boot image> [archives]
 
 <device name>     Device name of the USB device (eg. sda). Without the 
                   preceeding "/dev/"!
+
 <partition size>  The size of the first (main) partition. Rest of the 
                   space is used for swap partition. If set to 0, no swap 
                   partition is created and all space is used for the first 
-                  partition.
+                  partition. Most bifrost users will use 0 here as there 
+                  is litte use for swap in this application.
+
 <boot image>      File name of a gziped image file containing a bootable 
                   ext2 filesystem. Normally boot_image.gz, which is 
                   included in this package.
+
 [archives]        List of tarball-archives to be installed. One of these
                   should be the actual Bifrost archive (eg. 
-                  bifrost-rc-7.0-2.tar.gz).
+                  bifrost-rc-7.0-3.tar.gz).
 
 
 Example
 -------
 
-root@bt:~# ./make_bifrost sde 0 boot_image.gz bifrost-rc-7.0-2.tar.gz
+root@bt:~# ./make_bifrost sde 0 boot_image.gz bifrost-rc-7.0-3.tar.gz
 Will erase /dev/sde and load /root/boot_image.gz onto it
 Is this correct (yes is affirmative)?
 yes
