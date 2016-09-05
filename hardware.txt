@@ -1,9 +1,35 @@
 
-                 Bifrost components 2011-03-01
+                 Bifrost components 2016-09-05
                  =============================
 
 This represents equipment which have "passed" our tests at some point of time.
 NOTE. This implies no guarantee whatsoever.
+
+
+100G test system
+-----------------
+Thanks to Andres Lindfors at Nextron Sweden and Supermicro NL/USA. For 
+giving us access to this system for test. We had for access for about 
+one month.
+
+
+System
+------
+1 x SYS-5018GR-T ( GPU system )
+    https://www.supermicro.nl/products/system/1u/5018/sys-5018gr-t.cfm
+1 x Intel Xeon E5 8-Core - E5-2620v4, 2.10GHz 20MB LGA 2011 8.0GT/s 85W
+http://ark.intel.com/products/92986/Intel-Xeon-Processor-E5-2620-v4-20M-Cache-2_10-GHz
+4 x Micron 4GB DDR4 2133MHz 1Gx4 ECC/Reg 1.2V
+    Totalt 16GB i 2133MHz max enligt processor specifikation.
+1 x Samsung 120GB SM863 SSD SATA 6Gbps
+    http://www.samsung.com/us/business/computing/solid-state-drives/MZ-7KM120E
+1 x Supermicro 2.5 inch HDD to SSD adapter tray for 4th Gen. Supermicro server.
+
+NIC
+---
+1 x Mellanox ConnectX®-4 Single-Port Adapter supporting 100Gb/s with VPI
+1 x Mellanox Active fiber cable 3M QSFP
+
 
 
 Mid-Range
